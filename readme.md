@@ -39,13 +39,23 @@ Customers need to acquire credentials to gain access to the SDK. Please contact 
 You can find an example project with some basic implementations provided here <link to sample app directory>.
 
 ## Installation
-1. Download the eGainChat.framework from <<Provide link for the zip file>>
+1. Download the eGainChat.framework from <Provide link for the zip file>
 2. Open Xcode and go to your project
 3. Click on the project name.
-4. Under Frameworks, Libraries and Embedded Content, click the Plus icon. <insert image>
-5. In the Choose Frameworks and libraries to add dialog, navigate to where you have stored the downloaded SDK. Select it and click Open. <insert image>
-6. The Frameworks folder displays in the left panel. <insert image>
-7. Drag the eGainChat from the Frameworks folder and move it to the project folder as shown below <insert image>
+  <img width="1440" alt="Screen Shot 2021-11-04 at 7 44 58 PM" src="https://user-images.githubusercontent.com/94654299/151059900-7cfea786-24b5-43ee-a7af-265ed964373a.png">
+
+4. Under Frameworks, Libraries and Embedded Content, click the Plus icon.
+  <img width="1440" alt="Screen Shot 2021-11-04 at 7 48 17 PM" src="https://user-images.githubusercontent.com/94654299/151059977-c9f4c661-1548-4ec9-a716-cb35862a3224.png">
+  
+5. In the Choose Frameworks and libraries to add dialog, navigate to where you have stored the downloaded SDK. Select it and click Open.
+  <img width="1440" alt="Screen Shot 2021-11-04 at 7 50 00 PM" src="https://user-images.githubusercontent.com/94654299/151060012-847ec743-56cb-428e-812f-b647f09fbd11.png">
+
+6. The Frameworks folder displays in the left panel.
+  <img width="1440" alt="Screen Shot 2021-11-04 at 7 51 26 PM" src="https://user-images.githubusercontent.com/94654299/151060173-723602fc-95f9-44fb-9376-022ecee91c73.png">
+  
+7. Drag the eGainChat from the Frameworks folder and move it to the project folder as shown below
+  <img width="1440" alt="Screen Shot 2021-11-04 at 7 53 24 PM" src="https://user-images.githubusercontent.com/94654299/151060214-b0e5a2b8-0cb0-4168-aad7-eb94905a04ac.png">
+  
 8. Select Project → Targets → Build Settings → Search for "Framework Search Path"
 9. Add $(PROJECT_DIR) and choose Recursive option
 10. eGainChatSDK is now ready to be used in the project
