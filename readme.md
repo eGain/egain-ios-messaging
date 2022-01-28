@@ -41,7 +41,7 @@ Customers need to acquire credentials to gain access to the SDK. Please contact 
 You can find an example project with some basic implementations provided here. <link to sample app directory>
 
 ## Installation
-1. Download the eGainChat.framework from <Provide link for the zip file>
+1. Download the eGainChat.framework
 2. Open Xcode and go to your project
 3. Click on the project name.
   <img width="1440" alt="Screen Shot 2021-11-04 at 7 44 58 PM" src="https://user-images.githubusercontent.com/94654299/151059900-7cfea786-24b5-43ee-a7af-265ed964373a.png">
@@ -58,6 +58,7 @@ You can find an example project with some basic implementations provided here. <
 7. Drag the eGainChat from the Frameworks folder and move it to the project folder as shown below
   <img width="1440" alt="Screen Shot 2021-11-04 at 7 53 24 PM" src="https://user-images.githubusercontent.com/94654299/151060214-b0e5a2b8-0cb0-4168-aad7-eb94905a04ac.png">
   
-8. Select Project → Targets → Build Settings → Search for "Framework Search Path"
-9. Add $(PROJECT_DIR) and choose Recursive option
-10. eGainChatSDK is now ready to be used in the project
+8. Select `Project → Targets → Build Settings → Search` for "Framework Search Path"
+9. Add `$(PROJECT_DIR)` and choose Recursive option
+  
+### Next Steps: Continue the installation with the Configure SDK step.
