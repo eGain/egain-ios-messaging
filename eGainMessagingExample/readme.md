@@ -1,0 +1,405 @@
+# Configure SDK
+The instructions in this section provide details to complete the SDK installation.
+
+## Obtain Credentials
+Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret) to access the Conversation Hub. 
+If you have not yet obtained credentials, contact you eGain representative.
+
+## Choose default or custom options
+There are two ways in which you can use the SDK:
+
+- Option 1: Default version
+  - Out-of-the-Box UI (default)
+- Option 2: Customizable version
+  - This version allows you to use SDK methods and build your own UI around it.
+
+### Option 1: Default "Out of the Box"
+The default, "out-of-the-box" version provided by the SDK provides basic settings that can be configured to enhance your experience and allows customers to interact with eGain Conversation Hub using the chat button.  
+The chat button serves as the entry point to begin chatting with the eGain Conversation Hub.
+
+eGainMessaging provides a default chat button which can be added to any view of your application. The out of box UI is built using SwiftUI, which is also compatible with UIKit.
+
+There are two types of conversation modes you can add to the application: a customer and a guest mode. 
+
+To integrate the SDK with your project, add the following lines of code to display the chat button on the view. 
+
+```swift
+import eGainMessaging
+ 
+LaunchView(
+    clientId,
+    clientSecret,
+    emailId,
+    nameOfUser,
+    botGreeting
+)
+```
+
+#### Parameters
+|Name |Type | Description|
+|-|-|-|
+|clientId	|String	|eGain Conversation Hub client ID |
+|clientSecret	|String	|eGain Conversation Hub client secret|
+|emailId	|String | emailId of the end user |
+| nameOfUser|	String | name of the end user|
+| botGreeting	| Bool	| Boolean to enable the bot to send the starting message|
+
+eGainMessaging UI requires to be placed inside `NavigationView` (UINavigationController in UIKit)
+```swift
+import SwiftUI
+import eGainMessaging
+ 
+struct ContentView: View {
+    var body: some View {
+        NavigationView{
+            VStack {
+            LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", nameOfUser: "name", botGreeting: false)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+    }
+}
+```
+
+If your project already has NavigationView, then directly include the `LaunchView()`
+
+`LaunchView` supports both conversation modes. The conversation modes are automatically detected based on the emailId parameter.
+
+#### Customer Mode Conversation
+To create a chat button which requires end users to provide their credentials to continue the chat, add the following authenticated construct to the application. 
+
+> **_NOTE:_** `emailId` and `nameOfUser` are required parameters, if not passed then it will be considered as guest mode conversation. 
+> **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` will be set to 60. 
+
+The allowed declarations are shown below:
+```SWIFT
+import SwiftUI
+import eGainMessaging
+ 
+struct ContentView: View {
+    var body: some View {
+        NavigationView{
+            VStack {
+            LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", nameOfUser: "name", botGreeting: false)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+    }
+}
+```
+
+#### Guest Mode Conversation
+To create a chat button which does not require end users to provide credentials to continue the chat, add the following unauthenticated construct to the application.  
+
+> **_NOTE:_** `emailId` and `nameOfUser` should not be passed.
+> **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` will be set to 60. 
+
+The allowed declarations are shown below
+```swift
+import SwiftUI
+import eGainMessaging
+ 
+struct ContentView: View {
+    var body: some View {
+        NavigationView{
+            VStack {
+            LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", botGreeting: false)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .offset(y: 0)
+    }
+}
+```
+
+#### Screenshots
+Coming soon
+
+## Option 2: Customized SDK
+
+### Obtain Credentials
+Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret) to access the Conversation Hub. 
+If you have not yet obtained credentials, contact you eGain representative.  
+
+### Available methods
+- sessionValidator()
+- initialize()
+- sendMessage()
+- upload()
+- endConversation()
+- addListener()
+- sessionValidator()
+
+### Methods Explanation
+SDK uses Websocket API and REST API for data transfer. `sessionValidator()` uses REST API and the remaining methods uses Websocket API. 
+The following methods `initialize()`, `sendMessage()`, `upload()` and `endConversation()` when called will open a socket connection, the `addListener()` method will be 
+listening to the incoming messages in the socket.
+
+In all the above mentioned methods, `addListener()` is called inline to listen for responses for those methods. `addListener()` method always returns type string
+
+#### Initialize 
+This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId will be stored in the device using UserDefaults(). 
+
+##### Customer Mode - Initialize:
+```swift
+import eGainMessaging
+ 
+eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", emailId:"user@email.com", nameOfUser: "user", botGreeting){
+    initializeResult in
+    print(initializeResult)
+}
+```
+
+##### Guest Mode - Initialize:
+```swift
+eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
+    initializeResult in
+    print(initializeResult)
+}
+```
+
+#### Parameters - Initialize Chat
+|Name |Type |Description |
+|-|-|-|
+|eGainClientId|	String|	eGain Conversation Hub client ID|
+|eGainClientSecret|	String|	eGain Conversation Hub client secret|
+|botGreeting|	Boolean|	Value specifying if bot should send welcome message|
+|nameOfUser|	String|	Name of customer|
+|emailId|	String|	Email ID of customer|
+
+##### Response
+```swift
+["sessionId": 413ff6be-146d-4c78-9ffa-2de15d2c24e1]
+```
+
+#### Send Message:
+
+This method is used to send message to conversation hub. 
+
+##### Customer Mode - Send Message:
+```swift
+eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
+    sendMessageResult in
+    print(sendMessageResult)
+}
+```
+
+##### Guest Mode - Send Message:
+```swift
+eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
+    sendMessageResult in
+    print(sendMessageResult)
+}
+```
+
+#### Parameters - Send Message
+|Name |Type |Description |
+|-|-|-|
+|message|	String|	Text message sent by customer|
+|emailId|	String|	Email ID of customer|
+
+##### Responses:
+When the first message is sent, the conversation would be started and the following response will be received
+```swift
+["status": Conversation started]
+```
+
+For the consecutive messages, the following response will be received
+```swift
+["status": Conversation continued]
+```
+The above mentioned responses are synchronous to the `sendMessage` call. 
+Since the socket connection is open, all the incoming messages from bot or agent will be received in the `sendMessage()` method. 
+
+Please refer to the documentation <link> for supported message types.
+
+#### Upload
+This method is used to upload files/images to conversation hub.
+
+##### Customer Mode - Upload:
+```swift
+eGainMessaging().upload(fileName: "filename.extension", emailId:"user@email.com"){
+    uploadResult in
+    print(uploadResult)
+}
+```
+
+##### Guest Mode - Upload:
+```swift
+eGainMessaging().upload(fileName: "filename.extension"){
+    uploadResult in
+    print(uploadResult)
+}
+```
+
+##### Parameters - Upload:
+|Name |Type |Description|
+|-|-|-|
+|fileName|	android.net.Uri|	Uri of the file to be uploaded from device, usually found in GET_CONTENT intent|
+|emailId|	String |Email ID of customer|
+
+##### Responses
+A S3 pre-signed URL would be received as response. Upload the corresponding file to this URL, which will be uploaded to the agent
+```swift
+[
+    "uploadURL": https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/toMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/hello?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KV4RZO4XXU%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T231612Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECcaCXVzLXdlc3QtMiJHMEUCIHCCAHV%2BZak0%2FHWRzbZrJrzPTY9aqYnaNAFvmMw4k9n%2FAiEAg380MNn3I2XhujMZlxfGq3%2FRhQaDL3FvGL6NBIFpcqcqrAIIUBABGgwwNzU4MjcxNzYxMDciDHiB4fDMyVZm18ZkjiqJAs%2BsDZ0Q537LqWOxpyRIogD9PQzlZ9TWGKQ5c%2Fj4M%2BsfPwIelYaoXwhT%2BgO2ByQKpjhYwhDgKnyiB3qOEA1mWI%2Ft2p3gmKBOvQn96MqQUfQumAv6NVKx6BOlw32tRJQexnifR7SfO6oT71625q68VQUWLzd54j5sRCKwxmgYPhIk1ggQQhjpUme00zEPhEfomlBk4gTklXpitWPrVU8pOWAzmAWyEhyuRpxoBlz%2BiQ8tTGa9YbyKusX0Dd1FE77N3jpCbLD3Rskr%2Be49KzoCG9BLG0YySraQV3ZIpE1PmXU5M3Casre9%2FUb5m2aC3X2vf3JkKGIxcGsjziXktUEyqUsksV%2FaLcdge54w9ZuyjwY6mgFHUEi12RaC2JT2qKTaEcdFYTUtVk3pwkCR%2B6Xzsq0TJGfxE%2FWk6hPEx0oKX9%2FEd8dHt5N1RrIUw%2FPD98Makq%2BILBUZZRi6dgOWvgVzLogKcIFzt%2FP6MMj8vIR9FQG4bV%2Biw2F7rfs%2FLigOIVcKc7jfcdq82AspIwIyYEumDlUYUduep36Kbv2kS%2B9df7FWKxhOOwUr3XOe1XM3&X-Amz-Signature=b0e37cbe2b8e512a150a7cdae32551e96fddf1e93286363db604e84043a274f0&X-Amz-SignedHeaders=host,
+    "fileName": filename.extension,
+    "status": Conversation continued
+]
+```
+
+#### End conversation
+This method is used to end the conversation. 
+
+##### Customer Mode - End conversation:
+```swift
+eGainMessaging().endConversation(emailId:"user@email.com"){
+    endConversationResult in
+    print(endConversationResult)
+}
+```
+
+##### Guest Mode - End conversation:
+```swift
+eGainMessaging().endConversation(emailId:"user@email.com"){
+    endConversationResult in
+    print(endConversationResult)
+}
+```
+
+##### Parameters - End conversation:
+|Name |Type | Description
+|-|-|-|
+|emailId|	String	| Email ID of customer|
+
+##### Responses
+```swift
+["status": Conversation ended]
+```
+
+#### Session Validator
+As the name suggests this method will check whether the sessionId is valid or not. 
+``` swift
+eGainMessaging().sessionValidator(){
+    sessionValidatorResult in
+    print(sessionValidatorResult)
+}
+```
+
+##### Responses
+This is received when `sessionId` has expired
+```swift
+["status": sessionId expired]
+```
+
+This is received when a valid `sessionId` is available but the conversation has not started with conversation hub.
+```swift
+["status": conversation not started]
+```
+
+This is received when a valid `sessionId` is available and conversation has started with conversation hub.
+```swift
+["status": conversation started
+```
+
+## SDK Workflow
+First call the `sessionValidator()` to check whether there is a valid sessionId or not. 
+If sessionId has expired, call `initialize()`, else based on the two responses (Conversation started / Conversation not started) the flow can be designed accordingly. 
+After `initialize()`, call `sendMessage()` to start the conversation with conversation hub. After this `sendMessage()` can be called as many times as required. 
+`upload()` should be called after `sendMessage()`. Finally, in order to end the conversation call `endConversation()`. All these methods by default call `addListener()`
+to listen for response. 
+
+## Supported Response Types
+Listed below are the different types of messages that can be received and their content. 
+
+>**_NOTE:_** You can add a wrapper on top of `sendMessage()` and customize your app according to the responses listed below.
+
+When bot or agent responds with a text message, the following response will be received
+```swift
+
+### Text
+[
+    "eGainMessage": {
+                        "type":"text",
+                        "value":"Hello",
+                        "agentName":"name"
+                    }
+]
+```
+
+### Listpicker
+When bot or agent responds with a message of type listpicker, the following response will be received
+```swift
+[
+    "eGainMessage": {
+                        "type":"richMessage.listpicker",
+                        "value":"{ \"type\": \"list\", \"version\": \"1\", \"title\": \"Check latest collection                         \", \"subtitle\": \"Only online\", \"list\": {   \"multipleSelection\": false,   \"sections\": [     {       \"multipleSelection\": false,  \"title\": \"Select Answer\",  \"order\": 0,  \"items\": [ {\"title\": \"Check trim T-shirt\",\"subtitle\": \"Available only online order.\",\"id\": \"100001\",\"actions\": [ { \"type\": \"postback\" }] }, {\"title\": \"Classic trench coat\",\"subtitle\": \"Available in stores and online\",\"id\": \"100002\",\"actions\": [ { \"type\": \"postback\" }] }       ]     }   ] }}",
+                        "agentName":"name"
+                    }
+]
+```
+
+### Escalation
+When bot escalates the conversation to an agent, then the following response will be received
+```swift
+[
+    "eGainMessage": {
+                        "type":"conversation.state",
+     
+     "value":"{\"status\":\"escalated\",\"content\":\"\"}",
+                        "agentName":"system"
+                    }
+]
+```
+
+### Agent starts typing
+When agent starts typing, the following response will be received
+```swift
+[
+    "eGainMessage": {
+                        "type":"typing.start",
+                        "value":"",
+                        "agentName":"name"
+                    }
+]
+```
+
+### Agent stops typing
+When agent stops typing, the following response will be received
+```swift
+[  
+    "eGainMessage": {
+                        "type":"typing.end",
+                        "value":"",
+                        "agentName":"name"
+                    }
+]
+```
+
+### Conversation continued
+When the agent is going send any attachments, the this URL will be received which can be used to download the file and display on the device
+```swift
+[
+    "status": Conversation continued,
+    "fileName": featured-image-MH.jpeg,
+    "downloadURL": https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/fromMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/featured-image-MH.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KVSAK4ZSSV%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T232937Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECgaCXVzLXdlc3QtMiJHMEUCIEo%2FrTBbyaY8iZRj3Uy3yPNHWDVLERXO0dlpxtYt5SUfAiEA0R8xSqtiahqbGYRWLQrDjMOPJxbevnhubOk8cVv9FskqrwIIURABGgwwNzU4MjcxNzYxMDciDBtNLktin8MO8zG8ASqMAk9FURO7KPhk0Aqw37WxhpPykwV9Jn9XlRa94NDSessX9ipHkZpKMUIbHRWVJ0XYD8CpWGA8KQoO0tscElfiDE5w3tpBb8o%2Bozfep%2F0pKfivuWBzrkNcBwmdA7dvhlwfUPnJvyZp8miSCkRAIZggvxBlkpnNVPtwqA2biZ95jYfQQ%2Fz3NS5wRAIgDfHux0wHdZ1hImvXJgJ1svtqXOoLb7YqkYyf71jzi2cJkn3JsdwZ0PB9G%2FBCUqItCzaKHTkHfqshAZvRuX13kXWPYH9F90KpL6JEnbu14%2FwWYFlDVo0LpR7j%2BlqhLZeoA9%2BkIoJaHV6SuFayBVkGDasmB7XSfgk8Lt2anbQcSXdlS9Iw4KayjwY6mgHapkV26XGruBMiNyIdSDGTWE4DTaHKu3TCZOfQaOKdlayjX%2FkRq60NCNzlLYvSZOaIyqO%2FZknTd7qlSc7QPNP3qLr2BObzMcM4U3ZxXqTyy%2F6D0rKBNePLq6xfblUVPW0ri1TY2WOfj8zDpsvteYqOeHfhG%2FJXoPAK%2FNm5t0AIDpcMfr1Cx0EERYAh1VmC%2Fe0q1RwmxSvDh3Dy&X-Amz-Signature=ed5004f5c9df5b7ee7755162abf0f59c0f0ccb7c67db5898f2e0885bc7ceef98&X-Amz-SignedHeaders=host
+]
+```
+
+### Conversation ended
+When the agent ends the chat, the following response will be received, with which the chat can be closed on the user device.
+```swift
+[
+    "eGainMessage": {
+                        "type":"text",
+                        "value":"agent.end.conversation",
+                        "agentName":"name"
+                    }
+]
+```
+
+## Branding
+The UI of the SDK can be customized.
+
+1. Download branding.swift file
+2. Move the downloaded file to your project directory
+3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file
+4. You can change the values of the UI components in the function and save the file
+5. Call this function on `onAppear()` when your app is loaded
