@@ -61,4 +61,4 @@ You can find an example project with some basic implementations provided here. <
 8. Select `Project → Targets → Build Settings → Search` for "Framework Search Path"
 9. Add `$(PROJECT_DIR)` and choose Recursive option
   
-### Next Steps: Continue the installation with the Configure SDK step.
+### Next Steps: Continue the installation with the [Configure SDK step](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample).
