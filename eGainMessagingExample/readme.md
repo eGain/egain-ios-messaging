@@ -109,7 +109,16 @@ struct ContentView: View {
 }
 ```
 
-#### Screenshots
+### Branding
+The UI of the SDK can be customized.
+
+1. Download branding.swift file
+2. Move the downloaded file to your project directory
+3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file
+4. You can change the values of the UI components in the function and save the file
+5. Call this function on `onAppear()` when your app is loaded
+
+### Screenshots
 Coming soon
 
 ## Option 2: Customized SDK
@@ -135,12 +144,10 @@ listening to the incoming messages in the socket.
 In all the above mentioned methods, `addListener()` is called inline to listen for responses for those methods. `addListener()` method always returns type string
 
 #### Initialize 
-This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId will be stored in the device using UserDefaults(). 
+This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId will be stored in the device using `UserDefaults()`. 
 
 ##### Customer Mode - Initialize:
-```swift
-import eGainMessaging
- 
+```swift 
 eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", emailId:"user@email.com", nameOfUser: "user", botGreeting){
     initializeResult in
     print(initializeResult)
@@ -232,7 +239,7 @@ eGainMessaging().upload(fileName: "filename.extension"){
 ##### Parameters - Upload:
 |Name |Type |Description|
 |-|-|-|
-|fileName|	android.net.Uri|	Uri of the file to be uploaded from device, usually found in GET_CONTENT intent|
+|fileName|	String|	Name of the file|
 |emailId|	String |Email ID of customer|
 
 ##### Responses
@@ -312,9 +319,9 @@ Listed below are the different types of messages that can be received and their 
 >**_NOTE:_** You can add a wrapper on top of `sendMessage()` and customize your app according to the responses listed below.
 
 When bot or agent responds with a text message, the following response will be received
-```swift
 
 ### Text
+```swift
 [
     "eGainMessage": {
                         "type":"text",
@@ -394,12 +401,3 @@ When the agent ends the chat, the following response will be received, with whic
                     }
 ]
 ```
-
-## Branding
-The UI of the SDK can be customized.
-
-1. Download branding.swift file
-2. Move the downloaded file to your project directory
-3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file
-4. You can change the values of the UI components in the function and save the file
-5. Call this function on `onAppear()` when your app is loaded
