@@ -21,53 +21,13 @@ eGainMessaging provides a default chat button which can be added to any view of 
 
 There are two types of conversation modes you can add to the application: a customer and a guest mode. 
 
-To integrate the SDK with your project, add the following lines of code to display the chat button on the view. 
-
-```swift
-import eGainMessaging
- 
-LaunchView(
-    clientId,
-    clientSecret,
-    emailId,
-    nameOfUser,
-    botGreeting
-)
-```
-
-#### Parameters
-|Name |Type | Description|
-|-|-|-|
-|clientId	|String	|eGain Conversation Hub client ID |
-|clientSecret	|String	|eGain Conversation Hub client secret|
-|emailId	|String | emailId of the end user |
-| nameOfUser|	String | name of the end user|
-| botGreeting	| Bool	| Boolean to enable the bot to send the starting message|
-
-eGainMessaging UI requires to be placed inside `NavigationView` (UINavigationController in UIKit)
-```swift
-import SwiftUI
-import eGainMessaging
- 
-struct ContentView: View {
-    var body: some View {
-        NavigationView{
-            VStack {
-            LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", nameOfUser: "name", botGreeting: false)
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-    }
-}
-```
-
-If your project already has NavigationView, then directly include the `LaunchView()`
-
-`LaunchView` supports both conversation modes. The conversation modes are automatically detected based on the emailId parameter.
+To begin using the SDK, add the following line of code to create and display a chat button on the activity's view. Depending upon the mode chosen, the name and email of the user will be included. 
 
 #### Customer Mode Conversation
 To create a chat button which requires end users to provide their credentials to continue the chat, add the following authenticated construct to the application. 
 
 > **_NOTE:_** `emailId` and `nameOfUser` are required parameters, if not passed then it will be considered as guest mode conversation. 
+
 > **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` will be set to 60. 
 
 The allowed declarations are shown below:
@@ -85,11 +45,13 @@ struct ContentView: View {
     }
 }
 ```
+> **_NOTE:_** eGainMessaging UI requires to be placed inside `NavigationView` (UINavigationController in UIKit). If your project already has `NavigationView`, then directly include the `LaunchView()`
 
 #### Guest Mode Conversation
 To create a chat button which does not require end users to provide credentials to continue the chat, add the following unauthenticated construct to the application.  
 
 > **_NOTE:_** `emailId` and `nameOfUser` should not be passed.
+
 > **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` will be set to 60. 
 
 The allowed declarations are shown below
@@ -108,6 +70,14 @@ struct ContentView: View {
     }
 }
 ```
+#### Parameters
+|Name |Type | Description|
+|-|-|-|
+|clientId	|String	|eGain Conversation Hub client ID |
+|clientSecret	|String	|eGain Conversation Hub client secret|
+|emailId	|String | emailId of the end user |
+| nameOfUser|	String | name of the end user|
+| botGreeting	| Bool	| Boolean to enable the bot to send the starting message|
 
 ### Branding
 The UI of the SDK can be customized.
