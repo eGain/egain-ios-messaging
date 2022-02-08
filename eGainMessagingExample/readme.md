@@ -23,6 +23,8 @@ There are two types of conversation modes you can add to the application: a cust
 
 To begin using the SDK, add the following line of code to create and display a chat button on the activity's view. Depending upon the mode chosen, the name and email of the user will be included. 
 
+> **_NOTE:_** `AppState` is required for navigation. It should be declared as shown in the code snippets
+
 #### Customer Mode Conversation
 To create a chat button which requires end users to provide their credentials to continue the chat, add the following authenticated construct to the application. 
 
@@ -36,13 +38,16 @@ import SwiftUI
 import eGainMessaging
  
 struct ContentView: View {
+    @ObservedObject var appState = AppState()
     var body: some View {
         NavigationView{
-            VStack {
-            LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", nameOfUser: "name", botGreeting: false)
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            ZStack {
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", userName: "name", botGreeting: false)
+                    .id(appState.rootViewId)
+        }
         .ignoresSafeArea()
     }
+    .environmentObject(appState)
 }
 ```
 > **_NOTE:_** eGainMessaging UI requires to be placed inside `NavigationView` (UINavigationController in UIKit). If your project already has `NavigationView`, then directly include the `LaunchView()`
@@ -56,18 +61,21 @@ To create a chat button which does not require end users to provide credentials 
 
 The allowed declarations are shown below
 ```swift
+
 import SwiftUI
 import eGainMessaging
  
 struct ContentView: View {
+    @ObservedObject var appState = AppState()
     var body: some View {
         NavigationView{
-            VStack {
-            LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", botGreeting: false)
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            ZStack {
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", botGreeting: false)
+                    .id(appState.rootViewId)
+        }
         .ignoresSafeArea()
-        .offset(y: 0)
     }
+    .environmentObject(appState)
 }
 ```
 #### Parameters
@@ -76,17 +84,43 @@ struct ContentView: View {
 |clientId	|String	|eGain Conversation Hub client ID |
 |clientSecret	|String	|eGain Conversation Hub client secret|
 |emailId	|String | emailId of the end user |
-| nameOfUser|	String | name of the end user|
+| userName|	String | name of the end user|
 | botGreeting	| Bool	| Boolean to enable the bot to send the starting message|
 
 ### Branding
 The UI of the SDK can be customized.
 
-1. Download branding.swift file
+1. Download branding.swift file from our repository
 2. Move the downloaded file to your project directory
 3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file
 4. You can change the values of the UI components in the function and save the file
 5. Call this function on `onAppear()` when your app is loaded
+
+> **_NOTE:_** If you want to use a custom launch icon, add it to the assets and set the Render As to Template Image (This will enable to change the color of the icon). 
+
+<img width="1440" alt="sc 7" src="https://user-images.githubusercontent.com/94654299/153062329-4d417bc3-68e1-4e18-a59a-ae1db2125274.png">
+
+**Code Snippet**
+```swift
+import SwiftUI
+import eGainMessaging
+ 
+struct ContentView: View {
+    @ObservedObject var appState = AppState()
+    var body: some View {
+        NavigationView{
+            ZStack {
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", userName: "name", botGreeting: false)
+                    .id(appState.rootViewId)
+        }
+        .ignoresSafeArea()
+    }
+    .onAppear{ 
+        setConfig()   
+    }
+    .environmentObject(appState)
+}
+```
 
 ### Screenshots
 Coming soon
@@ -98,13 +132,12 @@ Credentials are used to verify you as a valid customer for the Conversation Hub.
 If you have not yet obtained credentials, contact you eGain representative.  
 
 ### Available methods
-- sessionValidator()
 - initialize()
 - sendMessage()
 - upload()
 - endConversation()
-- addListener()
 - sessionValidator()
+- addListener()
 
 ### Methods Explanation
 SDK uses Websocket API and REST API for data transfer. `sessionValidator()` uses REST API and the remaining methods uses Websocket API. 
@@ -275,6 +308,14 @@ This is received when a valid `sessionId` is available and conversation has star
 ```swift
 ["status": conversation started
 ```
+#### Add Listener
+As mentioned above, this method is used to receive responses from websocket. This method is not required to be used separately as it is being called inline by all other methods. 
+```swift
+eGainMessaging().addListener(){
+    (addListenerResult) in
+    print(addListenerResult)
+}
+```
 
 ## SDK Workflow
 First call the `sessionValidator()` to check whether there is a valid sessionId or not. 
@@ -308,6 +349,18 @@ When bot or agent responds with a message of type listpicker, the following resp
     "eGainMessage": {
                         "type":"richMessage.listpicker",
                         "value":"{ \"type\": \"list\", \"version\": \"1\", \"title\": \"Check latest collection                         \", \"subtitle\": \"Only online\", \"list\": {   \"multipleSelection\": false,   \"sections\": [     {       \"multipleSelection\": false,  \"title\": \"Select Answer\",  \"order\": 0,  \"items\": [ {\"title\": \"Check trim T-shirt\",\"subtitle\": \"Available only online order.\",\"id\": \"100001\",\"actions\": [ { \"type\": \"postback\" }] }, {\"title\": \"Classic trench coat\",\"subtitle\": \"Available in stores and online\",\"id\": \"100002\",\"actions\": [ { \"type\": \"postback\" }] }       ]     }   ] }}",
+                        "agentName":"name"
+                    }
+]
+```
+
+### Richlink
+When bot or agent responds with a message of type richlink, the following response will be received
+```swift
+[
+    "eGainMessage": {
+                        "type":"richMessage.richlink",
+                        "value":"{  \"version\": \"1\",  \"type\": \"web_url\",  \"imageid\": \"1\",  \"images\": [{  \"title\": \"Winter Jackets!!\",  \"url\": \"https://images-na.ssl-images-amazon.com/images/I/41yy1%2B08agL._SR38,50_.jpg\",  \"link\": \"https://aznadestzwa07.egdemo.info/purplenile/collection.html\",  \"imageid\": \"1\",  \"mimeType\": \"image/jpg\",  \"style\": \"icon\"}  ]}",
                         "agentName":"name"
                     }
 ]
