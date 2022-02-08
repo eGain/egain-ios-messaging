@@ -44,21 +44,23 @@ You can find an example project with some basic implementations provided here. <
 1. Download the eGainChat.framework
 2. Open Xcode and go to your project
 3. Click on the project name.
-  <img width="1440" alt="Screen Shot 2021-11-04 at 7 44 58 PM" src="https://user-images.githubusercontent.com/94654299/151059900-7cfea786-24b5-43ee-a7af-265ed964373a.png">
+   <img width="1440" alt="sc 1" src="https://user-images.githubusercontent.com/94654299/153059234-dc01c22d-a602-4eb6-a24a-cf5f8ea1a97d.png">
 
 4. Under Frameworks, Libraries and Embedded Content, click the Plus icon.
-  <img width="1440" alt="Screen Shot 2021-11-04 at 7 48 17 PM" src="https://user-images.githubusercontent.com/94654299/151059977-c9f4c661-1548-4ec9-a716-cb35862a3224.png">
+   <img width="1440" alt="sc 2" src="https://user-images.githubusercontent.com/94654299/153059275-20e6b1cf-0a3c-4765-8ca0-30e8f0b56526.png">
   
-5. In the Choose Frameworks and libraries to add dialog, navigate to where you have stored the downloaded SDK. Select it and click Open.
-  <img width="1440" alt="Screen Shot 2021-11-04 at 7 50 00 PM" src="https://user-images.githubusercontent.com/94654299/151060012-847ec743-56cb-428e-812f-b647f09fbd11.png">
+5. In the Choose Frameworks and libraries to add dialog, navigate to where you have stored the downloaded SDK. Select it and click **Open**.
+   <img width="1440" alt="sc 3" src="https://user-images.githubusercontent.com/94654299/153059296-e23224ff-faa5-407d-b3f9-350c43cf034d.png">
 
-6. The Frameworks folder displays in the left panel.
-  <img width="1440" alt="Screen Shot 2021-11-04 at 7 51 26 PM" src="https://user-images.githubusercontent.com/94654299/151060173-723602fc-95f9-44fb-9376-022ecee91c73.png">
-  
+6. The Frameworks folder will be displayed with eGainMessaging framework in the left panel. 
+   ![sc 5](https://user-images.githubusercontent.com/94654299/153060365-c02fa963-eb2b-4f5b-a757-3b52a69906d3.png)
+
 7. Drag the eGainChat from the Frameworks folder and move it to the project folder as shown below
-  <img width="1440" alt="Screen Shot 2021-11-04 at 7 53 24 PM" src="https://user-images.githubusercontent.com/94654299/151060214-b0e5a2b8-0cb0-4168-aad7-eb94905a04ac.png">
-  
-8. Select `Project → Targets → Build Settings → Search` for "Framework Search Path"
-9. Add `$(PROJECT_DIR)` and choose Recursive option
+   <img width="1440" alt="sc 5" src="https://user-images.githubusercontent.com/94654299/153059345-7157fa0d-753e-4bec-8f18-e1e5618dac8f.png">
+
+8. Select Project → Targets → Build Settings → Search for "Framework Search Paths" and `$(PROJECT_DIR)` and choose **Recursive option**
+   <img width="1440" alt="sc 6" src="https://user-images.githubusercontent.com/94654299/153059422-9d2a0fdb-2b03-4517-a412-c3d613d6bc7e.png">
+
+9. eGainMessaging framework is now ready to be used in the project
   
 ### Next Steps: Continue the installation with the [Configure SDK step](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample).
