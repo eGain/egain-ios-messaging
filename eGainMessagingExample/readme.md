@@ -8,9 +8,9 @@ If you have not yet obtained credentials, contact you eGain representative.
 ## Choose default or custom options
 There are two ways in which you can use the SDK:
 
-- Option 1: Default version
+- **Option 1: Default version**
   - Out-of-the-Box UI (default)
-- Option 2: Customizable version
+- **Option 2: Customizable version**
   - This version allows you to use SDK methods and build your own UI around it.
 
 ### Option 1: Default "Out of the Box"
@@ -21,14 +21,14 @@ eGainMessaging provides a default chat button which can be added to any view of 
 
 There are two types of conversation modes you can add to the application: a customer and a guest mode. 
 
-To begin using the SDK, add the following line of code to create and display a chat button on the activity's view. Depending upon the mode chosen, the name and email of the user will be included. 
+To begin using the SDK, add the following line of code to create and display a chat button on the activity's view. Depending upon the mode chosen, the name and email of the user is included. 
 
 > **_NOTE:_** `AppState` is required for navigation. It should be declared as shown in the code snippets
 
 #### Customer Mode Conversation
 To create a chat button which requires end users to provide their credentials to continue the chat, add the following authenticated construct to the application. 
 
-> **_NOTE:_** `emailId` and `nameOfUser` are required parameters, if not passed then it will be considered as guest mode conversation. 
+> **_NOTE:_** `emailId` and `nameOfUser` are required parameters, if not passed then it is considered as guest mode conversation. 
 
 > **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` will be set to 60. 
 
@@ -50,7 +50,7 @@ struct ContentView: View {
     .environmentObject(appState)
 }
 ```
-> **_NOTE:_** eGainMessaging UI requires to be placed inside `NavigationView` (UINavigationController in UIKit). If your project already has `NavigationView`, then directly include the `LaunchView()`
+> **_NOTE:_** eGainMessaging UI requires to be placed inside `NavigationView` (UINavigationController in UIKit). If your project already has `NavigationView`, then directly include the `LaunchView()`.
 
 #### Guest Mode Conversation
 To create a chat button which does not require end users to provide credentials to continue the chat, add the following unauthenticated construct to the application.  
@@ -59,7 +59,7 @@ To create a chat button which does not require end users to provide credentials 
 
 > **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` will be set to 60. 
 
-The allowed declarations are shown below
+The allowed declarations are shown below:
 ```swift
 
 import SwiftUI
@@ -90,11 +90,12 @@ struct ContentView: View {
 ### Branding
 The UI of the SDK can be customized.
 
-1. Download branding.swift file from our repository
-2. Move the downloaded file to your project directory
-3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file
-4. You can change the values of the UI components in the function and save the file
-5. Call this function on `onAppear()` when your app is loaded
+1. Download branding.swift file from our repository.
+2. Move the downloaded file to your project directory.
+3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file.
+4. You can change the values of the UI components in the function and save the file.
+5. Call this function on `onAppear()` when your app is loaded.
+6. This file can be customized according to customer needs.
 
 > **_NOTE:_** If you want to use a custom launch icon, add it to the assets and set the Render As to Template Image (This will enable to change the color of the icon). 
 
@@ -146,10 +147,10 @@ listening to the incoming messages in the socket.
 
 In all the above mentioned methods, `addListener()` is called inline to listen for responses for those methods. `addListener()` method always returns type string
 
-#### Initialize 
+#### Initialize Chat
 This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId will be stored in the device using `UserDefaults()`. 
 
-##### Customer Mode - Initialize:
+##### Customer Mode - Initialize Chat
 ```swift 
 eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", emailId:"user@email.com", nameOfUser: "user", botGreeting){
     initializeResult in
@@ -157,7 +158,7 @@ eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", emailId:
 }
 ```
 
-##### Guest Mode - Initialize:
+##### Guest Mode - Initialize Chat
 ```swift
 eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
     initializeResult in
@@ -174,7 +175,7 @@ eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
 |nameOfUser|	String|	Name of customer|
 |emailId|	String|	Email ID of customer|
 
-##### Response
+##### Response - Initialize Chat
 ```swift
 ["sessionId": 413ff6be-146d-4c78-9ffa-2de15d2c24e1]
 ```
@@ -183,7 +184,7 @@ eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
 
 This method is used to send message to conversation hub. 
 
-##### Customer Mode - Send Message:
+##### Customer Mode - Send Message
 ```swift
 eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
     sendMessageResult in
@@ -191,7 +192,7 @@ eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
 }
 ```
 
-##### Guest Mode - Send Message:
+##### Guest Mode - Send Message
 ```swift
 eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
     sendMessageResult in
@@ -205,8 +206,8 @@ eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
 |message|	String|	Text message sent by customer|
 |emailId|	String|	Email ID of customer|
 
-##### Responses:
-When the first message is sent, the conversation would be started and the following response will be received
+##### Responses- Send Message
+When the first message is sent, the conversation would be started and the following response is received.
 ```swift
 ["status": Conversation started]
 ```
@@ -223,7 +224,7 @@ Please refer to the documentation <link> for supported message types.
 #### Upload
 This method is used to upload files/images to conversation hub.
 
-##### Customer Mode - Upload:
+##### Customer Mode - Upload
 ```swift
 eGainMessaging().upload(fileName: "filename.extension", emailId:"user@email.com"){
     uploadResult in
@@ -231,7 +232,7 @@ eGainMessaging().upload(fileName: "filename.extension", emailId:"user@email.com"
 }
 ```
 
-##### Guest Mode - Upload:
+##### Guest Mode - Upload
 ```swift
 eGainMessaging().upload(fileName: "filename.extension"){
     uploadResult in
@@ -239,14 +240,14 @@ eGainMessaging().upload(fileName: "filename.extension"){
 }
 ```
 
-##### Parameters - Upload:
+##### Parameters - Upload
 |Name |Type |Description|
 |-|-|-|
 |fileName|	String|	Name of the file|
 |emailId|	String |Email ID of customer|
 
-##### Responses
-A S3 pre-signed URL would be received as response. Upload the corresponding file to this URL, which will be uploaded to the agent
+##### Responses - Upload
+A S3 pre-signed URL would be received as response. Upload the corresponding file to this URL, which is uploaded to the agent.
 ```swift
 [
     "uploadURL": https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/toMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/hello?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KV4RZO4XXU%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T231612Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECcaCXVzLXdlc3QtMiJHMEUCIHCCAHV%2BZak0%2FHWRzbZrJrzPTY9aqYnaNAFvmMw4k9n%2FAiEAg380MNn3I2XhujMZlxfGq3%2FRhQaDL3FvGL6NBIFpcqcqrAIIUBABGgwwNzU4MjcxNzYxMDciDHiB4fDMyVZm18ZkjiqJAs%2BsDZ0Q537LqWOxpyRIogD9PQzlZ9TWGKQ5c%2Fj4M%2BsfPwIelYaoXwhT%2BgO2ByQKpjhYwhDgKnyiB3qOEA1mWI%2Ft2p3gmKBOvQn96MqQUfQumAv6NVKx6BOlw32tRJQexnifR7SfO6oT71625q68VQUWLzd54j5sRCKwxmgYPhIk1ggQQhjpUme00zEPhEfomlBk4gTklXpitWPrVU8pOWAzmAWyEhyuRpxoBlz%2BiQ8tTGa9YbyKusX0Dd1FE77N3jpCbLD3Rskr%2Be49KzoCG9BLG0YySraQV3ZIpE1PmXU5M3Casre9%2FUb5m2aC3X2vf3JkKGIxcGsjziXktUEyqUsksV%2FaLcdge54w9ZuyjwY6mgFHUEi12RaC2JT2qKTaEcdFYTUtVk3pwkCR%2B6Xzsq0TJGfxE%2FWk6hPEx0oKX9%2FEd8dHt5N1RrIUw%2FPD98Makq%2BILBUZZRi6dgOWvgVzLogKcIFzt%2FP6MMj8vIR9FQG4bV%2Biw2F7rfs%2FLigOIVcKc7jfcdq82AspIwIyYEumDlUYUduep36Kbv2kS%2B9df7FWKxhOOwUr3XOe1XM3&X-Amz-Signature=b0e37cbe2b8e512a150a7cdae32551e96fddf1e93286363db604e84043a274f0&X-Amz-SignedHeaders=host,
@@ -255,10 +256,10 @@ A S3 pre-signed URL would be received as response. Upload the corresponding file
 ]
 ```
 
-#### End conversation
+#### End Conversation
 This method is used to end the conversation. 
 
-##### Customer Mode - End conversation:
+##### Customer Mode - End conversation
 ```swift
 eGainMessaging().endConversation(emailId:"user@email.com"){
     endConversationResult in
@@ -266,7 +267,7 @@ eGainMessaging().endConversation(emailId:"user@email.com"){
 }
 ```
 
-##### Guest Mode - End conversation:
+##### Guest Mode - End Conversation
 ```swift
 eGainMessaging().endConversation(emailId:"user@email.com"){
     endConversationResult in
@@ -274,12 +275,12 @@ eGainMessaging().endConversation(emailId:"user@email.com"){
 }
 ```
 
-##### Parameters - End conversation:
+##### Parameters - End Conversation
 |Name |Type | Description
 |-|-|-|
 |emailId|	String	| Email ID of customer|
 
-##### Responses
+##### Responses - End Conversation
 ```swift
 ["status": Conversation ended]
 ```
@@ -293,8 +294,8 @@ eGainMessaging().sessionValidator(){
 }
 ```
 
-##### Responses
-This is received when `sessionId` has expired
+##### Responses - Session Validator
+This is received when `sessionId` has expired.
 ```swift
 ["status": sessionId expired]
 ```
@@ -329,7 +330,7 @@ Listed below are the different types of messages that can be received and their 
 
 >**_NOTE:_** You can add a wrapper on top of `sendMessage()` and customize your app according to the responses listed below.
 
-When bot or agent responds with a text message, the following response will be received
+When bot or agent responds with a text message, the following response is received.
 
 ### Text
 ```swift
@@ -343,7 +344,7 @@ When bot or agent responds with a text message, the following response will be r
 ```
 
 ### Listpicker
-When bot or agent responds with a message of type listpicker, the following response will be received
+When bot or agent responds with a message of type listpicker, the following response is received.
 ```swift
 [
     "eGainMessage": {
@@ -355,7 +356,7 @@ When bot or agent responds with a message of type listpicker, the following resp
 ```
 
 ### Richlink
-When bot or agent responds with a message of type richlink, the following response will be received
+When bot or agent responds with a message of type richlink, the following response is received.
 ```swift
 [
     "eGainMessage": {
@@ -367,7 +368,7 @@ When bot or agent responds with a message of type richlink, the following respon
 ```
 
 ### Escalation
-When bot escalates the conversation to an agent, then the following response will be received
+When bot escalates the conversation to an agent, then the following response is received.
 ```swift
 [
     "eGainMessage": {
@@ -380,7 +381,7 @@ When bot escalates the conversation to an agent, then the following response wil
 ```
 
 ### Agent starts typing
-When agent starts typing, the following response will be received
+When agent starts typing, the following response is received.
 ```swift
 [
     "eGainMessage": {
@@ -392,7 +393,7 @@ When agent starts typing, the following response will be received
 ```
 
 ### Agent stops typing
-When agent stops typing, the following response will be received
+When agent stops typing, the following response is received.
 ```swift
 [  
     "eGainMessage": {
@@ -404,7 +405,7 @@ When agent stops typing, the following response will be received
 ```
 
 ### Conversation continued
-When the agent is going send any attachments, the this URL will be received which can be used to download the file and display on the device
+When the agent is going send any attachments, the this URL is received which can be used to download the file and display on the device.
 ```swift
 [
     "status": Conversation continued,
@@ -414,7 +415,7 @@ When the agent is going send any attachments, the this URL will be received whic
 ```
 
 ### Conversation ended
-When the agent ends the chat, the following response will be received, with which the chat can be closed on the user device.
+When the agent ends the chat, the following response is received, with which the chat can be closed on the user device.
 ```swift
 [
     "eGainMessage": {
