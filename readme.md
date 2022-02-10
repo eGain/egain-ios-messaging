@@ -58,9 +58,9 @@ You can find an example project with some basic implementations provided here. <
 7. Drag the eGainChat from the Frameworks folder and move it to the project folder as shown below
    <img width="1440" alt="sc 5" src="https://user-images.githubusercontent.com/94654299/153059345-7157fa0d-753e-4bec-8f18-e1e5618dac8f.png">
 
-8. Select Project → Targets → Build Settings → Search for "Framework Search Paths" and `$(PROJECT_DIR)` and choose **Recursive option**
+8. Select Project → Targets → Build Settings → Search for "Framework Search Paths" 
+9. `$(PROJECT_DIR)` and choose **Recursive option**
    <img width="1440" alt="sc 6" src="https://user-images.githubusercontent.com/94654299/153059422-9d2a0fdb-2b03-4517-a412-c3d613d6bc7e.png">
 
-9. eGainMessaging framework is now ready to be used in the project
   
 ### Next Steps: Continue the installation with the [Configure SDK step](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample).
