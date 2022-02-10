@@ -30,7 +30,7 @@ To create a chat button which requires end users to provide their credentials to
 
 > **_NOTE:_** `emailId` and `nameOfUser` are required parameters, if not passed then it is considered as guest mode conversation. 
 
-> **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` will be set to 60. 
+> **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` is set to 60. 
 
 The allowed declarations are shown below:
 ```SWIFT
@@ -57,7 +57,7 @@ To create a chat button which does not require end users to provide credentials 
 
 > **_NOTE:_** `emailId` and `nameOfUser` should not be passed.
 
-> **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` will be set to 60. 
+> **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` is set to 60. 
 
 The allowed declarations are shown below:
 ```swift
@@ -142,13 +142,13 @@ If you have not yet obtained credentials, contact you eGain representative.
 
 ### Methods Explanation
 SDK uses Websocket API and REST API for data transfer. `sessionValidator()` uses REST API and the remaining methods uses Websocket API. 
-The following methods `initialize()`, `sendMessage()`, `upload()` and `endConversation()` when called will open a socket connection, the `addListener()` method will be 
+The following methods `initialize()`, `sendMessage()`, `upload()` and `endConversation()` when called will open a socket connection, the `addListener()` method is 
 listening to the incoming messages in the socket.
 
 In all the above mentioned methods, `addListener()` is called inline to listen for responses for those methods. `addListener()` method always returns type string
 
 #### Initialize Chat
-This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId will be stored in the device using `UserDefaults()`. 
+This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId is stored in the device using `UserDefaults()`. 
 
 ##### Customer Mode - Initialize Chat
 ```swift 
@@ -212,12 +212,12 @@ When the first message is sent, the conversation would be started and the follow
 ["status": Conversation started]
 ```
 
-For the consecutive messages, the following response will be received
+For the consecutive messages, the following response is received
 ```swift
 ["status": Conversation continued]
 ```
 The above mentioned responses are synchronous to the `sendMessage` call. 
-Since the socket connection is open, all the incoming messages from bot or agent will be received in the `sendMessage()` method. 
+Since the socket connection is open, all the incoming messages from bot or agent is received in the `sendMessage()` method. 
 
 Please refer to the documentation <link> for supported message types.
 
