@@ -8,7 +8,7 @@ The eGain Chat SDK exposes methods which partner-developers can use to build mob
 
 By adding our SDK directly to your app, you get:
 
-- A quick and easy way to converse with customers utilizing our Conversation Hub's capabilities
+- A quick and easy way to converse with customers utilizing our eGain Conversation Hub's capabilities
 - Multiple options to fully customize the SDK to the look and feel you want
 - An always connected, ongoing conversation that increases customer satisfaction and engagement
 - Network bandwidth, local storage, and battery usage optimizations
