@@ -1,4 +1,4 @@
-# Configure SDK
+# SDK Configuration for iOS
 The instructions in this section provide details to complete the SDK installation.
 
 ## Obtain Credentials
@@ -88,7 +88,7 @@ struct ContentView: View {
 | botGreeting	| Bool	| Boolean to enable the bot to send the starting message|
 
 ### Branding
-The UI of the SDK can be customized.
+The UI of the SDK can be customized to configure the colors, text, and text sizes that are preferred. Use the provided <Branding.swift> file to see what can be changed and how to implement those changes.
 
 1. Download branding.swift file from our repository.
 2. Move the downloaded file to your project directory.
