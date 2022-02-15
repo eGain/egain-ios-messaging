@@ -13,11 +13,13 @@ By adding our SDK directly to your app, you get:
 - An always connected, ongoing conversation that increases customer satisfaction and engagement
 - Network bandwidth, local storage, and battery usage optimizations
 
-## eGain iOS SDK
+![default_flow_ios](https://user-images.githubusercontent.com/94654299/154154435-0676b529-02fc-47f3-927f-a243e7fa2d4d.png)
+
+## eGain Mobile SDK for iOS
 The eGain iOS SDK is bundled into an `eGainChat.framework` file. This framework can be imported into any iOS projects and can be integrated. This framework allows you to use the out-of-the-box UI with all the inbuilt methods and enables chat for your application within minutes.
 
 The SDK for iOS can be installed through manual installation. To install SDK for iOS, please refer to the complete installation<add link> guide.
-
+   
 ## Prerequisites/Requirements
 ### System Requirements
 The SDK requires the following minimum versions:
@@ -46,7 +48,7 @@ You can find an example project with some basic implementations provided here. <
 3. Click on the project name.
    <img width="1440" alt="sc 1" src="https://user-images.githubusercontent.com/94654299/153059234-dc01c22d-a602-4eb6-a24a-cf5f8ea1a97d.png">
 
-4. Under Frameworks, Libraries and Embedded Content, click the Plus icon.
+4. Under Frameworks, Libraries and Embedded Content, click the **Plus icon**.
    <img width="1440" alt="sc 2" src="https://user-images.githubusercontent.com/94654299/153059275-20e6b1cf-0a3c-4765-8ca0-30e8f0b56526.png">
   
 5. In the Choose Frameworks and libraries to add dialog, navigate to where you have stored the downloaded SDK. Select it and click **Open**.
@@ -58,7 +60,7 @@ You can find an example project with some basic implementations provided here. <
 7. Drag the eGainChat from the Frameworks folder and move it to the project folder.
    <img width="1440" alt="sc 5" src="https://user-images.githubusercontent.com/94654299/153059345-7157fa0d-753e-4bec-8f18-e1e5618dac8f.png">
 
-8. Select Project → Targets → Build Settings → Search for "Framework Search Paths".
+8. Select **Project** → **Targets** → **Build Settings** → **Search for "Framework Search Paths"**.
 9. Add `$(PROJECT_DIR)` and choose **Recursive option**.
    <img width="1440" alt="sc 6" src="https://user-images.githubusercontent.com/94654299/153059422-9d2a0fdb-2b03-4517-a412-c3d613d6bc7e.png">
 
