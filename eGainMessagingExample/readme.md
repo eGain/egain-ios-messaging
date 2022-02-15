@@ -123,8 +123,9 @@ struct ContentView: View {
 }
 ```
 
-### Screenshots
-Coming soon
+#### Sample Branding Flow
+![branded_flow_ios](https://user-images.githubusercontent.com/94654299/154157261-221c64b7-fd1e-485c-8127-c06c60e76b6e.png)
+
 
 ## Option 2: Customized SDK
 
@@ -137,11 +138,10 @@ If you have not yet obtained credentials, contact you eGain representative.
 - sendMessage()
 - upload()
 - endConversation()
-- sessionValidator()
 - addListener()
 
 ### Methods Explanation
-SDK uses Websocket API and REST API for data transfer. `sessionValidator()` uses REST API and the remaining methods uses Websocket API. 
+SDK uses Websocket API for data transfer. 
 The following methods `initialize()`, `sendMessage()`, `upload()` and `endConversation()` when called will open a socket connection, the `addListener()` method is 
 listening to the incoming messages in the socket.
 
@@ -175,9 +175,15 @@ eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
 |nameOfUser|	String|	Name of customer|
 |emailId|	String|	Email ID of customer|
 
-##### Response - Initialize Chat
+##### Responses - Initialize Chat
+When chat is initialized, but conversation has not started.
 ```swift
-["sessionId": 413ff6be-146d-4c78-9ffa-2de15d2c24e1]
+["sessionId": "413ff6be-146d-4c78-9ffa-2de15d2c24e1", "status": Conversation not started]
+```
+
+When chat is initialized and conversation has started.
+```swift
+["sessionId": "413ff6be-146d-4c78-9ffa-2de15d2c24e1", "status": Conversation started]
 ```
 
 #### Send Message:
@@ -209,12 +215,12 @@ eGainMessaging().sendMessage(message: "hi", emailId:"user@email.com"){
 ##### Responses- Send Message
 When the first message is sent, the conversation would be started and the following response is received.
 ```swift
-["status": Conversation started]
+["status": "Conversation started", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
 ```
 
 For the consecutive messages, the following response is received
 ```swift
-["status": Conversation continued]
+["status": "Conversation continued", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
 ```
 The above mentioned responses are synchronous to the `sendMessage` call. 
 Since the socket connection is open, all the incoming messages from bot or agent is received in the `sendMessage()` method. 
@@ -250,9 +256,10 @@ eGainMessaging().upload(fileName: "filename.extension"){
 A S3 pre-signed URL would be received as response. Upload the corresponding file to this URL, which is uploaded to the agent.
 ```swift
 [
-    "uploadURL": https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/toMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/hello?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KV4RZO4XXU%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T231612Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECcaCXVzLXdlc3QtMiJHMEUCIHCCAHV%2BZak0%2FHWRzbZrJrzPTY9aqYnaNAFvmMw4k9n%2FAiEAg380MNn3I2XhujMZlxfGq3%2FRhQaDL3FvGL6NBIFpcqcqrAIIUBABGgwwNzU4MjcxNzYxMDciDHiB4fDMyVZm18ZkjiqJAs%2BsDZ0Q537LqWOxpyRIogD9PQzlZ9TWGKQ5c%2Fj4M%2BsfPwIelYaoXwhT%2BgO2ByQKpjhYwhDgKnyiB3qOEA1mWI%2Ft2p3gmKBOvQn96MqQUfQumAv6NVKx6BOlw32tRJQexnifR7SfO6oT71625q68VQUWLzd54j5sRCKwxmgYPhIk1ggQQhjpUme00zEPhEfomlBk4gTklXpitWPrVU8pOWAzmAWyEhyuRpxoBlz%2BiQ8tTGa9YbyKusX0Dd1FE77N3jpCbLD3Rskr%2Be49KzoCG9BLG0YySraQV3ZIpE1PmXU5M3Casre9%2FUb5m2aC3X2vf3JkKGIxcGsjziXktUEyqUsksV%2FaLcdge54w9ZuyjwY6mgFHUEi12RaC2JT2qKTaEcdFYTUtVk3pwkCR%2B6Xzsq0TJGfxE%2FWk6hPEx0oKX9%2FEd8dHt5N1RrIUw%2FPD98Makq%2BILBUZZRi6dgOWvgVzLogKcIFzt%2FP6MMj8vIR9FQG4bV%2Biw2F7rfs%2FLigOIVcKc7jfcdq82AspIwIyYEumDlUYUduep36Kbv2kS%2B9df7FWKxhOOwUr3XOe1XM3&X-Amz-Signature=b0e37cbe2b8e512a150a7cdae32551e96fddf1e93286363db604e84043a274f0&X-Amz-SignedHeaders=host,
-    "fileName": filename.extension,
-    "status": Conversation continued
+	"uploadURL": "https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/toMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/hello?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KV4RZO4XXU%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T231612Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECcaCXVzLXdlc3QtMiJHMEUCIHCCAHV%2BZak0%2FHWRzbZrJrzPTY9aqYnaNAFvmMw4k9n%2FAiEAg380MNn3I2XhujMZlxfGq3%2FRhQaDL3FvGL6NBIFpcqcqrAIIUBABGgwwNzU4MjcxNzYxMDciDHiB4fDMyVZm18ZkjiqJAs%2BsDZ0Q537LqWOxpyRIogD9PQzlZ9TWGKQ5c%2Fj4M%2BsfPwIelYaoXwhT%2BgO2ByQKpjhYwhDgKnyiB3qOEA1mWI%2Ft2p3gmKBOvQn96MqQUfQumAv6NVKx6BOlw32tRJQexnifR7SfO6oT71625q68VQUWLzd54j5sRCKwxmgYPhIk1ggQQhjpUme00zEPhEfomlBk4gTklXpitWPrVU8pOWAzmAWyEhyuRpxoBlz%2BiQ8tTGa9YbyKusX0Dd1FE77N3jpCbLD3Rskr%2Be49KzoCG9BLG0YySraQV3ZIpE1PmXU5M3Casre9%2FUb5m2aC3X2vf3JkKGIxcGsjziXktUEyqUsksV%2FaLcdge54w9ZuyjwY6mgFHUEi12RaC2JT2qKTaEcdFYTUtVk3pwkCR%2B6Xzsq0TJGfxE%2FWk6hPEx0oKX9%2FEd8dHt5N1RrIUw%2FPD98Makq%2BILBUZZRi6dgOWvgVzLogKcIFzt%2FP6MMj8vIR9FQG4bV%2Biw2F7rfs%2FLigOIVcKc7jfcdq82AspIwIyYEumDlUYUduep36Kbv2kS%2B9df7FWKxhOOwUr3XOe1XM3&X-Amz-Signature=b0e37cbe2b8e512a150a7cdae32551e96fddf1e93286363db604e84043a274f0&X-Amz-SignedHeaders=host", 
+	"fileName": "filename.extension", 
+	"status": "Conversation continued",
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -282,33 +289,9 @@ eGainMessaging().endConversation(emailId:"user@email.com"){
 
 ##### Responses - End Conversation
 ```swift
-["status": Conversation ended]
+["status": "Conversation ended", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
 ```
 
-#### Session Validator
-As the name suggests this method will check whether the sessionId is valid or not. 
-``` swift
-eGainMessaging().sessionValidator(){
-    sessionValidatorResult in
-    print(sessionValidatorResult)
-}
-```
-
-##### Responses - Session Validator
-This is received when `sessionId` has expired.
-```swift
-["status": sessionId expired]
-```
-
-This is received when a valid `sessionId` is available but the conversation has not started with conversation hub.
-```swift
-["status": conversation not started]
-```
-
-This is received when a valid `sessionId` is available and conversation has started with conversation hub.
-```swift
-["status": conversation started
-```
 #### Add Listener
 As mentioned above, this method is used to receive responses from websocket. This method is not required to be used separately as it is being called inline by all other methods. 
 ```swift
@@ -319,11 +302,11 @@ eGainMessaging().addListener(){
 ```
 
 ## SDK Workflow
-First call the `sessionValidator()` to check whether there is a valid sessionId or not. 
-If sessionId has expired, call `initialize()`, else based on the two responses (Conversation started / Conversation not started) the flow can be designed accordingly. 
-After `initialize()`, call `sendMessage()` to start the conversation with conversation hub. After this `sendMessage()` can be called as many times as required. 
-`upload()` should be called after `sendMessage()`. Finally, in order to end the conversation call `endConversation()`. All these methods by default call `addListener()`
-to listen for response. 
+The SDK calls `initialize()` whenever the chat button is clicked. This is to check whether there is an available sessionId, else it will generate a new one and provide two responses (Conversation started / Conversation not started) based on which the flow can be designed accordingly. After `initialize()`, call `sendMessage()` to start the conversation with conversation hub.
+
+After this, `sendMessage()` can be called as many times as required. `upload()` should be called after `sendMessage()`.
+
+Finally, in order to end the conversation call `endConversation()`. All these methods call `addListener()` by default to listen for response.
 
 ## Supported Response Types
 Listed below are the different types of messages that can be received and their content. 
@@ -334,12 +317,13 @@ When bot or agent responds with a text message, the following response is receiv
 
 ### Text
 ```swift
-[
-    "eGainMessage": {
-                        "type":"text",
-                        "value":"Hello",
-                        "agentName":"name"
-                    }
+[	
+	"eGainMessage": {
+						"type":"text",
+						"value":"Hello",
+						"agentName":"name"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -347,11 +331,12 @@ When bot or agent responds with a text message, the following response is receiv
 When bot or agent responds with a message of type listpicker, the following response is received.
 ```swift
 [
-    "eGainMessage": {
-                        "type":"richMessage.listpicker",
-                        "value":"{ \"type\": \"list\", \"version\": \"1\", \"title\": \"Check latest collection                         \", \"subtitle\": \"Only online\", \"list\": {   \"multipleSelection\": false,   \"sections\": [     {       \"multipleSelection\": false,  \"title\": \"Select Answer\",  \"order\": 0,  \"items\": [ {\"title\": \"Check trim T-shirt\",\"subtitle\": \"Available only online order.\",\"id\": \"100001\",\"actions\": [ { \"type\": \"postback\" }] }, {\"title\": \"Classic trench coat\",\"subtitle\": \"Available in stores and online\",\"id\": \"100002\",\"actions\": [ { \"type\": \"postback\" }] }       ]     }   ] }}",
-                        "agentName":"name"
-                    }
+	"eGainMessage": {
+						"type":"richMessage.listpicker",
+						"value":"{ \"type\": \"list\", \"version\": \"1\", \"title\": \"Check latest collection 						\", \"subtitle\": \"Only online\", \"list\": {   \"multipleSelection\": false,   \"sections\": [     {       \"multipleSelection\": false,  \"title\": \"Select Answer\",  \"order\": 0,  \"items\": [ {\"title\": \"Check trim T-shirt\",\"subtitle\": \"Available only online order.\",\"id\": \"100001\",\"actions\": [ { \"type\": \"postback\" }] }, {\"title\": \"Classic trench coat\",\"subtitle\": \"Available in stores and online\",\"id\": \"100002\",\"actions\": [ { \"type\": \"postback\" }] }       ]     }   ] }}",
+						"agentName":"name"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -359,11 +344,12 @@ When bot or agent responds with a message of type listpicker, the following resp
 When bot or agent responds with a message of type richlink, the following response is received.
 ```swift
 [
-    "eGainMessage": {
-                        "type":"richMessage.richlink",
-                        "value":"{  \"version\": \"1\",  \"type\": \"web_url\",  \"imageid\": \"1\",  \"images\": [{  \"title\": \"Winter Jackets!!\",  \"url\": \"https://images-na.ssl-images-amazon.com/images/I/41yy1%2B08agL._SR38,50_.jpg\",  \"link\": \"https://aznadestzwa07.egdemo.info/purplenile/collection.html\",  \"imageid\": \"1\",  \"mimeType\": \"image/jpg\",  \"style\": \"icon\"}  ]}",
-                        "agentName":"name"
-                    }
+	"eGainMessage": {
+						"type":"richMessage.richlink",
+						"value":"{  \"version\": \"1\",  \"type\": \"web_url\",  \"imageid\": \"1\",  \"images\": [{  \"title\": \"Winter Jackets!!\",  \"url\": \"https://images-na.ssl-images-amazon.com/images/I/41yy1%2B08agL._SR38,50_.jpg\",  \"link\": \"https://aznadestzwa07.egdemo.info/purplenile/collection.html\",  \"imageid\": \"1\",  \"mimeType\": \"image/jpg\",  \"style\": \"icon\"}  ]}",
+						"agentName":"name"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -371,12 +357,12 @@ When bot or agent responds with a message of type richlink, the following respon
 When bot escalates the conversation to an agent, then the following response is received.
 ```swift
 [
-    "eGainMessage": {
-                        "type":"conversation.state",
-     
-     "value":"{\"status\":\"escalated\",\"content\":\"\"}",
-                        "agentName":"system"
-                    }
+	"eGainMessage": {
+						"type":"conversation.state",
+						"value":"{\"status\":\"escalated\",\"content\":\"\"}",
+						"agentName":"system"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -384,23 +370,25 @@ When bot escalates the conversation to an agent, then the following response is 
 When agent starts typing, the following response is received.
 ```swift
 [
-    "eGainMessage": {
-                        "type":"typing.start",
-                        "value":"",
-                        "agentName":"name"
-                    }
+	"eGainMessage": {
+						"type":"typing.start",
+						"value":"",
+						"agentName":"name"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
 ### Agent stops typing
 When agent stops typing, the following response is received.
 ```swift
-[  
-    "eGainMessage": {
-                        "type":"typing.end",
-                        "value":"",
-                        "agentName":"name"
-                    }
+[	
+	"eGainMessage": {
+						"type":"typing.end",
+						"value":"",
+						"agentName":"name"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -408,9 +396,10 @@ When agent stops typing, the following response is received.
 When the agent is going send any attachments, the this URL is received which can be used to download the file and display on the device.
 ```swift
 [
-    "status": Conversation continued,
-    "fileName": featured-image-MH.jpeg,
-    "downloadURL": https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/fromMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/featured-image-MH.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KVSAK4ZSSV%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T232937Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECgaCXVzLXdlc3QtMiJHMEUCIEo%2FrTBbyaY8iZRj3Uy3yPNHWDVLERXO0dlpxtYt5SUfAiEA0R8xSqtiahqbGYRWLQrDjMOPJxbevnhubOk8cVv9FskqrwIIURABGgwwNzU4MjcxNzYxMDciDBtNLktin8MO8zG8ASqMAk9FURO7KPhk0Aqw37WxhpPykwV9Jn9XlRa94NDSessX9ipHkZpKMUIbHRWVJ0XYD8CpWGA8KQoO0tscElfiDE5w3tpBb8o%2Bozfep%2F0pKfivuWBzrkNcBwmdA7dvhlwfUPnJvyZp8miSCkRAIZggvxBlkpnNVPtwqA2biZ95jYfQQ%2Fz3NS5wRAIgDfHux0wHdZ1hImvXJgJ1svtqXOoLb7YqkYyf71jzi2cJkn3JsdwZ0PB9G%2FBCUqItCzaKHTkHfqshAZvRuX13kXWPYH9F90KpL6JEnbu14%2FwWYFlDVo0LpR7j%2BlqhLZeoA9%2BkIoJaHV6SuFayBVkGDasmB7XSfgk8Lt2anbQcSXdlS9Iw4KayjwY6mgHapkV26XGruBMiNyIdSDGTWE4DTaHKu3TCZOfQaOKdlayjX%2FkRq60NCNzlLYvSZOaIyqO%2FZknTd7qlSc7QPNP3qLr2BObzMcM4U3ZxXqTyy%2F6D0rKBNePLq6xfblUVPW0ri1TY2WOfj8zDpsvteYqOeHfhG%2FJXoPAK%2FNm5t0AIDpcMfr1Cx0EERYAh1VmC%2Fe0q1RwmxSvDh3Dy&X-Amz-Signature=ed5004f5c9df5b7ee7755162abf0f59c0f0ccb7c67db5898f2e0885bc7ceef98&X-Amz-SignedHeaders=host
+	"status": "Conversation continued", 
+	"fileName": "featured-image-MH.jpeg", 
+	"downloadURL": "https://egain-pse-apps-oregon-development.s3.us-west-2.amazonaws.com/mh-websocket/dev/attachments/fromMessagingHub/a22db903-7654-4c1d-9f83-dbd6bc7d3249/featured-image-MH.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIARDJ5G4KVSAK4ZSSV%2F20220122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220122T232937Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECgaCXVzLXdlc3QtMiJHMEUCIEo%2FrTBbyaY8iZRj3Uy3yPNHWDVLERXO0dlpxtYt5SUfAiEA0R8xSqtiahqbGYRWLQrDjMOPJxbevnhubOk8cVv9FskqrwIIURABGgwwNzU4MjcxNzYxMDciDBtNLktin8MO8zG8ASqMAk9FURO7KPhk0Aqw37WxhpPykwV9Jn9XlRa94NDSessX9ipHkZpKMUIbHRWVJ0XYD8CpWGA8KQoO0tscElfiDE5w3tpBb8o%2Bozfep%2F0pKfivuWBzrkNcBwmdA7dvhlwfUPnJvyZp8miSCkRAIZggvxBlkpnNVPtwqA2biZ95jYfQQ%2Fz3NS5wRAIgDfHux0wHdZ1hImvXJgJ1svtqXOoLb7YqkYyf71jzi2cJkn3JsdwZ0PB9G%2FBCUqItCzaKHTkHfqshAZvRuX13kXWPYH9F90KpL6JEnbu14%2FwWYFlDVo0LpR7j%2BlqhLZeoA9%2BkIoJaHV6SuFayBVkGDasmB7XSfgk8Lt2anbQcSXdlS9Iw4KayjwY6mgHapkV26XGruBMiNyIdSDGTWE4DTaHKu3TCZOfQaOKdlayjX%2FkRq60NCNzlLYvSZOaIyqO%2FZknTd7qlSc7QPNP3qLr2BObzMcM4U3ZxXqTyy%2F6D0rKBNePLq6xfblUVPW0ri1TY2WOfj8zDpsvteYqOeHfhG%2FJXoPAK%2FNm5t0AIDpcMfr1Cx0EERYAh1VmC%2Fe0q1RwmxSvDh3Dy&X-Amz-Signature=ed5004f5c9df5b7ee7755162abf0f59c0f0ccb7c67db5898f2e0885bc7ceef98&X-Amz-SignedHeaders=host",
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
 
@@ -418,10 +407,11 @@ When the agent is going send any attachments, the this URL is received which can
 When the agent ends the chat, the following response is received, with which the chat can be closed on the user device.
 ```swift
 [
-    "eGainMessage": {
-                        "type":"text",
-                        "value":"agent.end.conversation",
-                        "agentName":"name"
-                    }
+	"eGainMessage": {
+						"type":"text",
+						"value":"agent.end.conversation",
+						"agentName":"name"
+					},
+	"authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"
 ]
 ```
