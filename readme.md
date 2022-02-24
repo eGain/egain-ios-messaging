@@ -40,7 +40,7 @@ Size: 2.1 MB
 Customers need to acquire credentials to gain access to the SDK. Please contact your eGain representative to receive your Conversation Hub client id and client secret.
 
 ### Sample App (iOS)
-You can find an example project with some basic implementations provided here. <link to sample app directory>
+You can find an example project with some basic implementations provided [here]https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample). 
 
 ## Installation
 1. Download the eGainChat.framework from the repository
