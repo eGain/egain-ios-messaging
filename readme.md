@@ -13,7 +13,7 @@ By adding our SDK directly to your app, you get:
 - An always connected, ongoing conversation that increases customer satisfaction and engagement
 - Network bandwidth, local storage, and battery usage optimizations
 
-![default_flow_ios](https://user-images.githubusercontent.com/94654299/154154435-0676b529-02fc-47f3-927f-a243e7fa2d4d.png)
+![ios_01](https://user-images.githubusercontent.com/94654299/155618310-929c06af-a0b0-47ed-b98b-5f1b00934cac.png)
 
 ## eGain Mobile SDK for iOS
 The eGain iOS SDK is bundled into an `eGainChat.framework` file. This framework can be imported into any iOS projects and can be integrated. This framework allows you to use the out-of-the-box UI with all the inbuilt methods and enables chat for your application within minutes.
