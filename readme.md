@@ -1,5 +1,16 @@
 <img src="https://user-images.githubusercontent.com/94654299/151062447-895f64ed-9379-42d5-92ad-c0a491e6b71f.png" width="290" height="78">
 
+## Table of Contents
+- [About eGain Messaging](#about-egain-messaging)
+- [eGain Mobile SDK for iOS](#egain-mobile-sdk-for-ios)
+- [Prerequisites/Requirements](#prerequisitesrequirements)
+  * [System Requirements](#system-requirements)
+  * [SDK Size](#sdk-size)
+  * [Permissions / Credentials](#permissions--credentials)
+  * [Sample App (iOS)](#sample-app-ios)
+- [Installation](#installation)
+  * [Next Steps: Continue the installation with the Configure SDK step](#nextsteps)
+
 ## About eGain Messaging
 
 Messaging is increasingly becoming the most popular way customers are choosing to engage with businesses. With so many messaging platforms and channels, it is important for a business to be able to provide an experience to customers and a consistent experience for their agents. eGain Conversation Hub provides a consistent messaging experience for customers and agents across all messaging channels (synchronous and asynchronous). Its features support popular messaging platforms and custom messaging channels.
@@ -65,4 +76,4 @@ You can find an example project with some basic implementations provided [here](
    <img width="1440" alt="sc 6" src="https://user-images.githubusercontent.com/94654299/153059422-9d2a0fdb-2b03-4517-a412-c3d613d6bc7e.png">
 
   
-### Next Steps: Continue the installation with the [Configure SDK step](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample).
+### Next Steps: Continue the installation with the [Configure SDK step](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample).<a name="nextsteps"></a>
