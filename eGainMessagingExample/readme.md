@@ -1,6 +1,24 @@
 # SDK Configuration for iOS
 The instructions in this section provide details to complete the SDK installation.
 
+## Table of Contents
+- [SDK Configuration for iOS](#sdk-configuration-for-ios)
+  * [Obtain Credentials](#obtain-credentials)
+  * [Choose default or custom options](#choose-default-or-custom-options)
+    + [Option 1: Default "Out of the Box"](#option-1-default-out-of-the-box)
+    + [Branding](#branding)
+  * [Option 2: Customized SDK](#option-2-customized-sdk)
+    + [Obtain Credentials](#obtain-credentials-1)
+    + [Available methods](#available-methods)
+    + [Methods Explanation](#methods-explanation)
+      - [Initialize Chat](#initialize-chat)
+      - [Send Message](#send-message)
+      - [Upload](#upload)
+      - [End Conversation](#end-conversation)
+      - [Add Listener](#add-listener)
+  * [SDK Workflow](#sdk-workflow)
+  * [Supported Response Types](#supported-response-types)
+
 ## Obtain Credentials
 Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret) to access the Conversation Hub. 
 If you have not yet obtained credentials, contact you eGain representative.
@@ -186,7 +204,7 @@ When chat is initialized and conversation has started.
 ["sessionId": "413ff6be-146d-4c78-9ffa-2de15d2c24e1", "status": Conversation started]
 ```
 
-#### Send Message:
+#### Send Message
 
 This method is used to send message to conversation hub. 
 
