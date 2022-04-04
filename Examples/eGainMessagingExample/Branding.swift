@@ -10,7 +10,7 @@ import SwiftUI
 import eGainMessaging
 
 func setConfig(){
-    launchViewIcon = "" // Add your icon to assets and enter the name here
+    launchViewIcon = "" // Add your icon to assets and enter the icon name here
     launchViewIconColor = Color(red: 27/255, green: 131/255, blue: 197/255, opacity: 1.0) //Type Color?
     launchViewIconWidth = 50.0 //CGFloat?
     launchViewIconHeight = 50.0 //CGFloat?
