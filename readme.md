@@ -45,7 +45,7 @@ We require using the latest available versions of:
 ### SDK Size
 The size of the SDK will vary depending upon the configuration.
 
-Size: 2.1 MB
+Size: 3.5 MB
 
 ### Permissions / Credentials
 Customers need to acquire credentials to gain access to the SDK. Please contact your eGain representative to receive your Conversation Hub client id and client secret.
