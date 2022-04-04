@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8025856527FB80A80064B74C /* eGainMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8025856427FB80A80064B74C /* eGainMessaging.framework */; platformFilter = ios; };
+		8025856627FB80A80064B74C /* eGainMessaging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8025856427FB80A80064B74C /* eGainMessaging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		803E3EDE27A8B75C0014138F /* eGainMessagingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803E3EDD27A8B75C0014138F /* eGainMessagingExampleApp.swift */; };
 		803E3EE027A8B75C0014138F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803E3EDF27A8B75C0014138F /* ContentView.swift */; };
 		803E3EE227A8B7600014138F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803E3EE127A8B7600014138F /* Assets.xcassets */; };
 		803E3EE527A8B7600014138F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803E3EE427A8B7600014138F /* Preview Assets.xcassets */; };
-		803E3EED27A8BA390014138F /* eGainMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803E3EEC27A8BA390014138F /* eGainMessaging.framework */; platformFilter = ios; };
-		803E3EEE27A8BA390014138F /* eGainMessaging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 803E3EEC27A8BA390014138F /* eGainMessaging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		803E3EF227A8BD890014138F /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803E3EF127A8BD890014138F /* Branding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		803E3EEF27A8BA390014138F /* Embed Frameworks */ = {
+		8096E50E27B0B163009D5690 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				803E3EEE27A8BA390014138F /* eGainMessaging.framework in Embed Frameworks */,
+				8025856627FB80A80064B74C /* eGainMessaging.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,14 +31,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8025856427FB80A80064B74C /* eGainMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = eGainMessaging.framework; path = ../../Desktop/eGainMessaging.framework; sourceTree = "<group>"; };
+		8025856727FB80AD0064B74C /* eGainMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = eGainMessaging.framework; sourceTree = "<group>"; };
 		803E3EDA27A8B75C0014138F /* eGainMessagingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eGainMessagingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		803E3EDD27A8B75C0014138F /* eGainMessagingExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eGainMessagingExampleApp.swift; sourceTree = "<group>"; };
 		803E3EDF27A8B75C0014138F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		803E3EE127A8B7600014138F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		803E3EE427A8B7600014138F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		803E3EEC27A8BA390014138F /* eGainMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = eGainMessaging.framework; path = ../../Desktop/eGainMessaging.framework; sourceTree = "<group>"; };
-		803E3EF027A8BAA80014138F /* eGainMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = eGainMessaging.framework; sourceTree = "<group>"; };
 		803E3EF127A8BD890014138F /* Branding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branding.swift; sourceTree = "<group>"; };
+		8096E51027B0B65B009D5690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,19 +47,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				803E3EED27A8BA390014138F /* eGainMessaging.framework in Frameworks */,
+				8025856527FB80A80064B74C /* eGainMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8025856327FB80A80064B74C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8025856427FB80A80064B74C /* eGainMessaging.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		803E3ED127A8B75C0014138F = {
 			isa = PBXGroup;
 			children = (
 				803E3EDC27A8B75C0014138F /* eGainMessagingExample */,
 				803E3EDB27A8B75C0014138F /* Products */,
-				803E3EEB27A8BA380014138F /* Frameworks */,
+				8025856327FB80A80064B74C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,11 +82,12 @@
 		803E3EDC27A8B75C0014138F /* eGainMessagingExample */ = {
 			isa = PBXGroup;
 			children = (
+				8096E51027B0B65B009D5690 /* Info.plist */,
 				803E3EDD27A8B75C0014138F /* eGainMessagingExampleApp.swift */,
 				803E3EDF27A8B75C0014138F /* ContentView.swift */,
 				803E3EF127A8BD890014138F /* Branding.swift */,
-				803E3EF027A8BAA80014138F /* eGainMessaging.framework */,
 				803E3EE127A8B7600014138F /* Assets.xcassets */,
+				8025856727FB80AD0064B74C /* eGainMessaging.framework */,
 				803E3EE327A8B7600014138F /* Preview Content */,
 			);
 			path = eGainMessagingExample;
@@ -91,14 +101,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		803E3EEB27A8BA380014138F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				803E3EEC27A8BA390014138F /* eGainMessaging.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,7 +111,7 @@
 				803E3ED627A8B75C0014138F /* Sources */,
 				803E3ED727A8B75C0014138F /* Frameworks */,
 				803E3ED827A8B75C0014138F /* Resources */,
-				803E3EEF27A8BA390014138F /* Embed Frameworks */,
+				8096E50E27B0B163009D5690 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,10 +305,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"eGainMessagingExample/Preview Content\"";
-				DEVELOPMENT_TEAM = QZX4LYBS98;
+				DEVELOPMENT_TEAM = VZW3SGAWJ9;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eGainMessagingExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -334,10 +337,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"eGainMessagingExample/Preview Content\"";
-				DEVELOPMENT_TEAM = QZX4LYBS98;
+				DEVELOPMENT_TEAM = VZW3SGAWJ9;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = eGainMessagingExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

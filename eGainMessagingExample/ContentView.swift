@@ -9,20 +9,23 @@ import SwiftUI
 import eGainMessaging
 
 struct ContentView: View {
+    @ObservedObject var appState = AppState()
     var body: some View {
         NavigationView{
-            VStack {
-                Image("easy-with-eGain-logo")
-                    .resizable()
-                    .scaledToFit()
-                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX",
-                    emailId:"xyz@email.com",nameOfUser: "xyz", botGreeting: false)
-            }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .ignoresSafeArea()
-        }.onAppear{
-            // To use branding
+            ZStack {
+                Image("eight_bank_logo")
+                LaunchView(clientId: "",
+                           clientSecret:"", channelType: "", accountAddress: "", botGreeting: "")
+                    .id(appState.rootViewId)
+            }
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .background(Color(UIColor(red: 240/255, green: 248/255, blue: 255/255, alpha: 1)))
+            .ignoresSafeArea()
+        }
+        .onAppear{
             setConfig()
         }
+        .environmentObject(appState)
     }
 }
 
