@@ -13,14 +13,14 @@ The instructions in this section provide details to complete the SDK installatio
     + [Methods Explanation](#methods-explanation)
       - [Initialize Chat](#initialize-chat)
       - [Send Message](#send-message)
-      - [Upload](#upload)
+      - [Upload Attachments](#upload-attachments)
       - [End Conversation](#end-conversation)
       - [Add Listener](#add-listener)
   * [SDK Workflow](#sdk-workflow)
-  * [Supported Response Types](#supported-response-types)
+  * [Supported Response Types](#supported-message-types)
 
 ## Obtain Credentials
-Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret) to access the Conversation Hub. 
+Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret), accountAddress, and channelType to access the Conversation Hub. 
 If you have not yet obtained credentials, contact you eGain representative.
 
 ## Choose default or custom options
@@ -41,14 +41,16 @@ There are two types of conversation modes you can add to the application: a cust
 
 To begin using the SDK, add the following line of code to create and display a chat button on the activity's view. Depending upon the mode chosen, the name and email of the user is included. 
 
-> **_NOTE:_** `AppState` is required for navigation. It should be declared as shown in the code snippets
+> **_NOTE:_** `AppState` is required for navigation. It should be declared as shown in the code snippets.
+
+> **_NOTE:_** If you do not wish to have a bot greeting, you may choose to leave out the botGreeting field when creating a new button.
 
 #### Customer Mode Conversation
 To create a chat button which requires end users to provide their credentials to continue the chat, add the following authenticated construct to the application. 
 
-> **_NOTE:_** `emailId` and `nameOfUser` are required parameters, if not passed then it is considered as guest mode conversation. 
+> **_NOTE:_** `emailId` and `userName` are required parameters, if not passed then it is considered as guest mode conversation. 
 
-> **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` is set to 60. 
+> **_NOTE:_** By default `chatIconColor` would be set to .gray, `chatIconWidth` and `chatIconHeight` is set to 50. 
 
 The allowed declarations are shown below:
 ```SWIFT
@@ -60,7 +62,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", userName: "name", botGreeting: false)
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", channelType:"", accountAddress:"", emailId:"name@email.com",  userName: "name", botGreeting: "Hi")
                     .id(appState.rootViewId)
         }
         .ignoresSafeArea()
@@ -73,9 +75,9 @@ struct ContentView: View {
 #### Guest Mode Conversation
 To create a chat button which does not require end users to provide credentials to continue the chat, add the following unauthenticated construct to the application.  
 
-> **_NOTE:_** `emailId` and `nameOfUser` should not be passed.
+> **_NOTE:_** `emailId` and `userName` should not be passed.
 
-> **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` is set to 60. 
+> **_NOTE:_** By default `chatIconColor` would be set to `.gray`, `chatIconWidth` and `chatIconHeight` is set to 50. 
 
 The allowed declarations are shown below:
 ```swift
@@ -88,7 +90,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", botGreeting: false)
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", channelType:"", accountAddress:"", botGreeting: "Hi")
                     .id(appState.rootViewId)
         }
         .ignoresSafeArea()
@@ -101,9 +103,11 @@ struct ContentView: View {
 |-|-|-|
 |clientId	|String	|eGain Conversation Hub client ID |
 |clientSecret	|String	|eGain Conversation Hub client secret|
+| channelType| String | eGain Conversation Hub Channel|
+| accountAddress| String |eGain Conversation Hub Account |
 |emailId	|String | emailId of the end user |
 | userName|	String | name of the end user|
-| botGreeting	| Bool	| Boolean to enable the bot to send the starting message|
+| botGreeting	| String	|The first message which needs to be sent to the bot to start the conversation. If this parameter is not specified then the end user needs to initiate the conversation.|
 
 ### Branding
 The UI of the SDK can be customized to configure the colors, text, and text sizes that are preferred. Use the provided <Branding.swift> file to see what can be changed and how to implement those changes.
@@ -115,7 +119,7 @@ The UI of the SDK can be customized to configure the colors, text, and text size
 5. Call this function on `onAppear()` when your app is loaded.
 6. This file can be customized according to customer needs.
 
-> **_NOTE:_** If you want to use a custom launch icon, add it to the assets and set the Render As to Template Image (This will enable to change the color of the icon). 
+> **_NOTE:_** If you want to use a custom launch icon, add it to the assets and set the Render As to Template Image (This enables to change the color of the icon). 
 
 <img width="1440" alt="sc 7" src="https://user-images.githubusercontent.com/94654299/153062329-4d417bc3-68e1-4e18-a59a-ae1db2125274.png">
 
@@ -129,7 +133,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", emailId:"name@email.com", userName: "name", botGreeting: false)
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", channelType:"", accountAddress:"", emailId:"name@email.com", userName: "name", botGreeting: false)
                     .id(appState.rootViewId)
         }
         .ignoresSafeArea()
@@ -148,7 +152,7 @@ struct ContentView: View {
 ## Option 2: Customized SDK
 
 ### Obtain Credentials
-Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret) to access the Conversation Hub. 
+Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret), accountAddress, and channelType to access the Conversation Hub. 
 If you have not yet obtained credentials, contact you eGain representative.  
 
 ### Available methods
@@ -160,17 +164,17 @@ If you have not yet obtained credentials, contact you eGain representative.
 
 ### Methods Explanation
 SDK uses Websocket API for data transfer. 
-The following methods `initialize()`, `sendMessage()`, `upload()` and `endConversation()` when called will open a socket connection, the `addListener()` method is 
+The following methods `initialize()`, `sendMessage()`, `upload()` and `endConversation()` when called opens a socket connection, the `addListener()` method is 
 listening to the incoming messages in the socket.
 
-In all the above mentioned methods, `addListener()` is called inline to listen for responses for those methods. `addListener()` method always returns type string
+In all the above mentioned methods, `addListener()` is called inline to listen for responses for those methods.
 
 #### Initialize Chat
-This method is the entry point for the SDK. This method will require clientId and clientSecret. This method will check whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId is stored in the device using `UserDefaults()`. 
+This method is the entry point for the SDK. This method requires clientId, clientSecret, channelType, and accountAddress. This method checks whether the clientId and clientSecret are valid and a sessionId would be generated for this session. This sessionId is stored in the device using `UserDefaults()`. 
 
 ##### Customer Mode - Initialize Chat
 ```swift 
-eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", emailId:"user@email.com", nameOfUser: "user", botGreeting){
+eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", channelType:"", accountAddress:"", emailId:"user@email.com", userName: "user", botGreeting: "Hi"){
     initializeResult in
     print(initializeResult)
 }
@@ -178,7 +182,7 @@ eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", emailId:
 
 ##### Guest Mode - Initialize Chat
 ```swift
-eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
+eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", channelType:"", accountAddress:""){
     initializeResult in
     print(initializeResult)
 }
@@ -189,8 +193,10 @@ eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX"){
 |-|-|-|
 |eGainClientId|	String|	eGain Conversation Hub client ID|
 |eGainClientSecret|	String|	eGain Conversation Hub client secret|
-|botGreeting|	Boolean|	Value specifying if bot should send welcome message|
-|nameOfUser|	String|	Name of customer|
+|channelType | String |eGain Conversation Hub Channel |
+|accountAddress| String|eGain Conversation Hub Account |
+|botGreeting|	String|	The first message which needs to be sent to the bot to start the conversation.|
+|userName|	String|	Name of customer|
 |emailId|	String|	Email ID of customer|
 
 ##### Responses - Initialize Chat
@@ -236,19 +242,23 @@ When the first message is sent, the conversation would be started and the follow
 ["status": "Conversation started", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
 ```
 
-For the consecutive messages, the following response is received
+For the consecutive messages, the following response is received.
 ```swift
 ["status": "Conversation continued", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
 ```
-The above mentioned responses are synchronous to the `sendMessage` call. 
-Since the socket connection is open, all the incoming messages from bot or agent is received in the `sendMessage()` method. 
+If the agent has already closed the conversation or the system has already closed the conversation, the following response in received
+```java
+["status": "Invalid sessionId", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
+```
 
-Please refer to the documentation <link> for supported message types.
+These responses are synchronous to the `sendMessage` call. Since the socket connection is open, all the incoming messages from bot or agent is received in the `sendMessage()` method. 
 
-#### Upload
+Please refer to the [documentation](#supported-message-types) for supported message types.
+ 
+#### Upload Attachments
 This method is used to upload files/images to conversation hub.
 
-##### Customer Mode - Upload
+##### Customer Mode - Upload Attachments
 ```swift
 eGainMessaging().upload(fileName: "filename.extension", emailId:"user@email.com"){
     uploadResult in
@@ -256,7 +266,7 @@ eGainMessaging().upload(fileName: "filename.extension", emailId:"user@email.com"
 }
 ```
 
-##### Guest Mode - Upload
+##### Guest Mode - Upload Attachments
 ```swift
 eGainMessaging().upload(fileName: "filename.extension"){
     uploadResult in
@@ -264,13 +274,13 @@ eGainMessaging().upload(fileName: "filename.extension"){
 }
 ```
 
-##### Parameters - Upload
+##### Parameters - Upload Attachments
 |Name |Type |Description|
 |-|-|-|
 |fileName|	String|	Name of the file|
 |emailId|	String |Email ID of customer|
 
-##### Responses - Upload
+##### Responses - Upload Attachments
 A S3 pre-signed URL would be received as response. Upload the corresponding file to this URL, which is uploaded to the agent.
 ```swift
 [
@@ -310,8 +320,13 @@ eGainMessaging().endConversation(emailId:"user@email.com"){
 ["status": "Conversation ended", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
 ```
 
+If the agent has already closed the conversation or the system has already closed the conversation, the following response in received.
+```java
+["status": "Invalid sessionId", "authorization": "413ff6be-146d-4c78-9ffa-2de15d2c24e1"]
+```
+
 #### Add Listener
-As mentioned above, this method is used to receive responses from websocket. This method is not required to be used separately as it is being called inline by all other methods. 
+This method is used to receive responses from websocket. This method is not required to be used separately as it is being called inline by all other methods. 
 ```swift
 eGainMessaging().addListener(){
     (addListenerResult) in
@@ -320,13 +335,13 @@ eGainMessaging().addListener(){
 ```
 
 ## SDK Workflow
-The SDK calls `initialize()` whenever the chat button is clicked. This is to check whether there is an available sessionId, else it will generate a new one and provide two responses (Conversation started / Conversation not started) based on which the flow can be designed accordingly. After `initialize()`, call `sendMessage()` to start the conversation with conversation hub.
+The SDK calls `initialize()` whenever the chat button is clicked. This is to check whether there is an available sessionId, else it will generate a new one and provide two responses (Conversation started / Conversation not started / Invalid sessionId) based on which the flow can be designed accordingly. After `initialize()`, call `sendMessage()` to start the conversation with conversation hub.
 
 After this, `sendMessage()` can be called as many times as required. `upload()` should be called after `sendMessage()`.
 
 Finally, in order to end the conversation call `endConversation()`. All these methods call `addListener()` by default to listen for response.
 
-## Supported Response Types
+## Supported Message Types
 Listed below are the different types of messages that can be received and their content. 
 
 >**_NOTE:_** You can add a wrapper on top of `sendMessage()` and customize your app according to the responses listed below.
@@ -410,7 +425,7 @@ When agent stops typing, the following response is received.
 ]
 ```
 
-### Conversation continued
+### Download
 When the agent is going send any attachments, the this URL is received which can be used to download the file and display on the device.
 ```swift
 [
