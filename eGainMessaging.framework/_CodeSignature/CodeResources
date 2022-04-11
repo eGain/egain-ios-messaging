@@ -6,7 +6,7 @@
 	<dict>
 		<key>.DS_Store</key>
 		<data>
-		BJjKTWj17NgPTLUWO7q2EATxfek=
+		SVp2nNRA/ozRZU0Sw7EnsvMcD+E=
 		</data>
 		<key>Assets.car</key>
 		<data>
@@ -30,19 +30,19 @@
 		</data>
 		<key>Modules/.DS_Store</key>
 		<data>
-		fyAVpbGz81fo3HLgrWSMk77q+A8=
+		Yg7W39p8jmlGYWxghci6Qxpqhy8=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/.DS_Store</key>
 		<data>
-		susYFfk/rpSW4JLYl7+yQ7EKlXg=
+		8tTMc/q4oJadGxPdrNiwbaxgJV8=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		I+FMyN2yMQ4/Apyx40BDrdTCbpg=
+		tscHRbNNkBXKzNXpjXHamHVPG+E=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		I+FMyN2yMQ4/Apyx40BDrdTCbpg=
+		tscHRbNNkBXKzNXpjXHamHVPG+E=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BsbIq/+h22sBreucLO7fgRUV8a8=
+		gePcJS34D+K3sUeByhImoeaEKgc=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		BsbIq/+h22sBreucLO7fgRUV8a8=
+		gePcJS34D+K3sUeByhImoeaEKgc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -107,14 +107,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eTWTiNEEyxpHsPKcw8edAkmoyxOqirQSxgQiaixWWxg=
+			nLsAw85Szzw+gsx8dNCp7iLb3CRiD/Ao7VEEB2X+cLo=
 			</data>
 		</dict>
 		<key>Modules/eGainMessaging.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eTWTiNEEyxpHsPKcw8edAkmoyxOqirQSxgQiaixWWxg=
+			nLsAw85Szzw+gsx8dNCp7iLb3CRiD/Ao7VEEB2X+cLo=
 			</data>
 		</dict>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -128,7 +128,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			utH2uHpS8vEj1hckhAn4OvJ3SiltkiVev9RyHLF0ll8=
+			wp7Q3lFR0MSMut2mnl+coS9vlI5U0ToAlx9WjwT/MB4=
 			</data>
 		</dict>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftdoc</key>
@@ -142,7 +142,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			utH2uHpS8vEj1hckhAn4OvJ3SiltkiVev9RyHLF0ll8=
+			wp7Q3lFR0MSMut2mnl+coS9vlI5U0ToAlx9WjwT/MB4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
