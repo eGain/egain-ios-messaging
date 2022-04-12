@@ -54,7 +54,7 @@ Customers need to acquire credentials to gain access to the SDK. Please contact 
 You can find an example project with some basic implementations provided [here](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample). 
 
 ## Installation
-1. Download the eGainChat.framework from the repository
+1. Download the eGainMessaging.framework from the repository
 2. Open Xcode and go to your project.
 3. Click on the project name.
    <img width="1440" alt="sc 1" src="https://user-images.githubusercontent.com/94654299/153059234-dc01c22d-a602-4eb6-a24a-cf5f8ea1a97d.png">
