@@ -21,7 +21,7 @@ The instructions in this section provide details to complete the SDK installatio
 
 ## Obtain Credentials
 Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret), accountAddress, and channelType to access the Conversation Hub. 
-If you have not yet obtained credentials, contact you eGain representative.
+If you have not yet obtained credentials, contact your eGain representative.
 
 ## Choose default or custom options
 There are two ways in which you can use the SDK:
