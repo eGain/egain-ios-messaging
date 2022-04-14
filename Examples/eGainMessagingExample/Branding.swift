@@ -31,7 +31,7 @@ func setConfig(){
     welcomeViewButtonTextColor = Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1) //Color?
     welcomeViewButtonColor = Color(red: 49/255, green: 86/255, blue: 163/255, opacity: 1.0) //Color?
     welcomeViewEnableQuickLinks = true //Bool
-    welcomeViewQuickLinks = [["name":"Visit Us", "value":"https://green.egdemo.info/eight/index.html", "type":"URL"], ["name":"eGain 21 Feature Guides", "value":"https://ebrain.egain.com/kb/featureguides/home", "type":"URL"], ["name":"What's New in eGain 21", "value":"https://ebrain.egain.com/kb/newin21/home", "type":"URL"],  ["name":"Contact Us", "value":"7374842630", "type":"Phone"]]
+    welcomeViewQuickLinks = [["name":"Visit Us", "value":"https://www.egain.com/", "type":"URL"], ["name":"eGain 21 Feature Guides", "value":"https://ebrain.egain.com/kb/featureguides/home", "type":"URL"], ["name":"What's New in eGain 21", "value":"https://ebrain.egain.com/kb/newin21/home", "type":"URL"],  ["name":"Contact Us", "value":"8008214358", "type":"Phone"]]
     welcomeViewQuickLinksColor = Color(red: 49/255, green: 86/255, blue: 163/255, opacity: 1.0) //Color?
     eGainLogoColor = Color(red: 49/255, green: 86/255, blue: 163/255, opacity: 1.0) //Color?
     messageViewHeaderText = "Eight Bank Chat" //String?
