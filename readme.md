@@ -9,7 +9,7 @@
   * [Permissions / Credentials](#permissions--credentials)
   * [Sample App (iOS)](#sample-app-ios)
 - [Installation](#installation)
-  * [Next Steps: Continue the installation with the Configure SDK step](#nextsteps)
+  * [Next Steps: Continue the installation with Configure SDK for iOS procedures](#nextsteps)
 
 ## About eGain Messaging
 
@@ -76,4 +76,4 @@ You can find an example project with some basic implementations provided [here](
    <img width="1440" alt="sc 6" src="https://user-images.githubusercontent.com/94654299/153059422-9d2a0fdb-2b03-4517-a412-c3d613d6bc7e.png">
 
   
-### Next Steps: Continue the installation with the [Configure SDK step](https://github.com/eGain/egain-ios-messaging/tree/dev/Examples).<a name="nextsteps"></a>
+### Next Steps: Continue the installation with [Configure SDK](https://github.com/eGain/egain-ios-messaging/tree/dev/Examples)<a name="nextsteps"></a> for iOS procedures.
