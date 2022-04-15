@@ -41,9 +41,7 @@ There are two types of conversation modes you can add to the application: a cust
 
 To begin using the SDK, add the following line of code to create and display a chat button on the activity's view. Depending upon the mode chosen, the name and email of the user is included. 
 
-> **_NOTE:_** `AppState` is required for navigation. It should be declared as shown in the code snippets.
-
-> **_NOTE:_** If you do not wish to have a bot greeting, you may choose to leave out the botGreeting field when creating a new button.
+> **_NOTE:_** `AppState` is required for navigation and it should be declared as shown in the code snippets. If you do not wish to have a bot greeting, you may choose to leave out the botGreeting field when creating a new button.
 
 #### Customer Mode Conversation
 To create a chat button which requires end users to provide their credentials to continue the chat, add the following authenticated construct to the application. 
@@ -115,9 +113,9 @@ The UI of the SDK can be customized to configure the colors, text, and text size
 1. Download branding.swift file from our repository.
 2. Move the downloaded file to your project directory.
 3. This file consists of `setConfig()` function which has all the UI components which can be branded, and their default values are available on the file.
-4. You can change the values of the UI components in the function and save the file.
+4. Change the values of the UI components available in the function as needed.
 5. Call this function on `onAppear()` when your app is loaded.
-6. This file can be customized according to customer needs.
+6. Customize this file as needed. 
 
 > **_NOTE:_** If you want to use a custom launch icon, add it to the assets and set the Render As to Template Image (This enables to change the color of the icon). 
 
