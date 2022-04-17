@@ -19,9 +19,18 @@ The instructions in this section provide details to complete the SDK installatio
   * [SDK Workflow](#sdk-workflow)
   * [Supported Response Types](#supported-message-types)
 
-## Obtain Credentials
-Credentials are used to verify you as a valid customer for the Conversation Hub. You need a unique ID (clientId) and password (clientSecret), accountAddress, and channelType to access the Conversation Hub. 
-If you have not yet obtained credentials, contact your eGain representative.
+## Configure Conversation Hub
+Please contact eGain customer representative to get the Conversation Hub tenant clientId and clientSecret. 
+Configure your Conversation Hub tenant using the steps listed under the section **Bring-Your-Own-Channel with eGain Virtual Assistant steps** and using this postman script **BYOC with eGain VA Conversation API Setup.postman_collection.json** from here.
+
+While configuring Conversation Hub pass the below values in the postman script
+*customer authentication - username:nmanoharan / password:egain@123
+*customer callback - https://qa-napsapps.egeng.info/mh-websocket/system/egain/customer/callback
+
+Once the configuration is complete, the following values are required to be passed to the mobile sdk
+*clientId and clientSecret generated after the creation of client app
+*channel type used while creating the channel
+*account address used while creating the account
 
 ## Choose default or custom options
 There are two ways in which you can use the SDK:
