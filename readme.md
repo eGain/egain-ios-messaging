@@ -48,10 +48,10 @@ The size of the SDK will vary depending upon the configuration.
 Size: 3.5 MB
 
 ### Permissions / Credentials
-Customers need to acquire credentials to gain access to the SDK. Please contact your eGain representative to receive your Conversation Hub client id and client secret.
+Customers need to acquire credentials to gain access to the SDK. Please contact your eGain customer representative to receive your Conversation Hub client Id and clientSecret.
 
 ### Sample App (iOS)
-You can find an example project with some basic implementations provided [here](https://github.com/eGain/egain-ios-messaging/tree/dev/eGainMessagingExample). 
+You can find an example project with some basic implementations provided [here](https://github.com/eGain/egain-ios-messaging/tree/dev/Examples). 
 
 ## Installation
 1. Download the eGainMessaging.framework from the repository
