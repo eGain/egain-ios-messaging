@@ -3,7 +3,7 @@ The instructions in this section provide details to complete the SDK installatio
 
 ## Table of Contents
 - [SDK Configuration for iOS](#sdk-configuration-for-ios)
-  * [Obtain Credentials](#obtain-credentials)
+  * [Configure Conversation Hub](#configure-conversation-hub)
   * [Choose default or custom options](#choose-default-or-custom-options)
     + [Option 1: Default "Out of the Box"](#option-1-default-out-of-the-box)
     + [Branding](#branding)
@@ -21,16 +21,16 @@ The instructions in this section provide details to complete the SDK installatio
 
 ## Configure Conversation Hub
 Please contact eGain customer representative to get the Conversation Hub tenant clientId and clientSecret. 
-Configure your Conversation Hub tenant using the steps listed under the section **Bring-Your-Own-Channel with eGain Virtual Assistant steps** and using this postman script **BYOC with eGain VA Conversation API Setup.postman_collection.json** from here.
+Configure your Conversation Hub tenant using the steps listed under the section **Bring-Your-Own-Channel with eGain Virtual Assistant steps** and using this postman script **BYOC with eGain VA Conversation API Setup.postman_collection.json** from [here](https://ebrain.egain.com/kb/devcentral/content/EASY-8283/Bring-Your-Own-Channel).
 
 While configuring Conversation Hub pass the below values in the postman script
-*customer authentication - username:nmanoharan / password:egain@123
-*customer callback - https://qa-napsapps.egeng.info/mh-websocket/system/egain/customer/callback
+- customer authentication - username:nmanoharan / password:egain@123
+- customer callback - https://qa-napsapps.egeng.info/mh-websocket/system/egain/customer/callback
 
 Once the configuration is complete, the following values are required to be passed to the mobile sdk
-*clientId and clientSecret generated after the creation of client app
-*channel type used while creating the channel
-*account address used while creating the account
+- clientId and clientSecret generated after the creation of client app
+- channel type used while creating the channel
+- account address used while creating the account
 
 ## Choose default or custom options
 There are two ways in which you can use the SDK:
