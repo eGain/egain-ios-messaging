@@ -1,7 +1,7 @@
 <img src="https://user-images.githubusercontent.com/94654299/151062447-895f64ed-9379-42d5-92ad-c0a491e6b71f.png" width="290" height="78">
 
 ## Table of Contents
-- [About eGain Messaging](#about-egain-messaging)
+- [About eGain Messaging Mobile SDK](#about-egain-messaging-mobile-sdk)
 - [eGain Mobile SDK for iOS](#egain-mobile-sdk-for-ios)
 - [Prerequisites/Requirements](#prerequisitesrequirements)
   * [System Requirements](#system-requirements)
@@ -11,11 +11,11 @@
 - [Installation](#installation)
   * [Next Steps: Continue the installation with Configure SDK for iOS procedures](#nextsteps)
 
-## About eGain Messaging
+## About eGain Messaging Mobile SDK
 
 Messaging is increasingly becoming the most popular way customers are choosing to engage with businesses. With so many messaging platforms and channels, it is important for a business to be able to provide an experience to customers and a consistent experience for their agents. eGain Conversation Hub provides a consistent messaging experience for customers and agents across all messaging channels (synchronous and asynchronous). Its features support popular messaging platforms and custom messaging channels.
 
-The eGain Chat SDK exposes methods which partner-developers can use to build mobile apps to interact with eGain Conversation Hub. With a few modifications, partners can integrate their existing mobile apps with eGain Conversation Hub.
+The eGain Messaging SDK exposes methods which partner-developers can use to build mobile apps to interact with eGain Conversation Hub. With a few modifications, partners can integrate their existing mobile apps with eGain Conversation Hub.
 
 By adding our SDK directly to your app, you get:
 
@@ -68,7 +68,7 @@ You can find an example project with some basic implementations provided [here](
 6. The Frameworks folder displays with eGainMessaging framework in the left panel. 
    ![sc 5](https://user-images.githubusercontent.com/94654299/153060365-c02fa963-eb2b-4f5b-a757-3b52a69906d3.png)
 
-7. Drag the eGainChat from the Frameworks folder and move it to the project folder.
+7. Drag the eGainMessaging from the Frameworks folder and move it to the project folder.
    <img width="1440" alt="sc 5" src="https://user-images.githubusercontent.com/94654299/153059345-7157fa0d-753e-4bec-8f18-e1e5618dac8f.png">
 
 8. Select **Project** → **Targets** → **Build Settings** → **Search for "Framework Search Paths"**.
