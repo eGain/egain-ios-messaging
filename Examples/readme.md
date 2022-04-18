@@ -17,7 +17,7 @@ The instructions in this section provide details to complete the SDK installatio
       - [End Conversation](#end-conversation)
       - [Add Listener](#add-listener)
   * [SDK Workflow](#sdk-workflow)
-  * [Supported Response Types](#supported-message-types)
+  * [Supported Message Types](#supported-message-types)
 
 ## Configure Conversation Hub
 Please contact eGain customer representative to get the Conversation Hub tenant clientId and clientSecret. 
