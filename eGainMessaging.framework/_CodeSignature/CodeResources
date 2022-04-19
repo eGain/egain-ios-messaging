@@ -6,7 +6,7 @@
 	<dict>
 		<key>.DS_Store</key>
 		<data>
-		SVp2nNRA/ozRZU0Sw7EnsvMcD+E=
+		n/rQJkx6Mz6Q1kOjxbcSKfSwkU4=
 		</data>
 		<key>Assets.car</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/.DS_Store</key>
 		<data>
-		Yg7W39p8jmlGYWxghci6Qxpqhy8=
+		ksj/xqYCPsBTQzamVNQMaEKAqEc=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/.DS_Store</key>
 		<data>
-		8tTMc/q4oJadGxPdrNiwbaxgJV8=
+		eTXlcqeR+J1+Mmtdl/ogqo6poYc=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
@@ -48,17 +48,25 @@
 		<data>
 		zFBn+/BpSpV+fNAsBasMPc+t3z8=
 		</data>
+		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		EvOJwG9Ek5P7RF+z3LeudMo+F9I=
+		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		gePcJS34D+K3sUeByhImoeaEKgc=
+		t1OSuZzejRJ+eCjyrSzktMvEn6E=
 		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftdoc</key>
 		<data>
 		zFBn+/BpSpV+fNAsBasMPc+t3z8=
 		</data>
+		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftinterface</key>
+		<data>
+		EvOJwG9Ek5P7RF+z3LeudMo+F9I=
+		</data>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		gePcJS34D+K3sUeByhImoeaEKgc=
+		t1OSuZzejRJ+eCjyrSzktMvEn6E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -124,11 +132,18 @@
 			5oMnEAmmA4pA/e+UPeL+huCeglT9wnptsuXZCurNToc=
 			</data>
 		</dict>
+		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cCKvxKNbQKqT+ts5gG8ZLYASaRPu2ZimQvYOvbAu7J0=
+			</data>
+		</dict>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wp7Q3lFR0MSMut2mnl+coS9vlI5U0ToAlx9WjwT/MB4=
+			8IyoL665eFlgqO2n1yhCcVxPeypXmCZKPjczJMov26s=
 			</data>
 		</dict>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftdoc</key>
@@ -138,11 +153,18 @@
 			5oMnEAmmA4pA/e+UPeL+huCeglT9wnptsuXZCurNToc=
 			</data>
 		</dict>
+		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cCKvxKNbQKqT+ts5gG8ZLYASaRPu2ZimQvYOvbAu7J0=
+			</data>
+		</dict>
 		<key>Modules/eGainMessaging.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wp7Q3lFR0MSMut2mnl+coS9vlI5U0ToAlx9WjwT/MB4=
+			8IyoL665eFlgqO2n1yhCcVxPeypXmCZKPjczJMov26s=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
