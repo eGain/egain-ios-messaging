@@ -1,0 +1,147 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name eGainMessagingSDK
+import Foundation
+import PDFKit
+import SafariServices
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+@_exported import eGainMessagingSDK
+public struct RingProgressViewStyle : SwiftUI.ProgressViewStyle {
+  public func makeBody(configuration: SwiftUI.ProgressViewStyleConfiguration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s17eGainMessagingSDK21RingProgressViewStyleV8makeBody13configurationQr7SwiftUI0efG13ConfigurationV_tF", 0) __
+}
+final public class AppState : Foundation.ObservableObject {
+  @Combine.Published @_projectedValueProperty($rootViewId) final public var rootViewId: Foundation.UUID {
+    get
+    set
+    _modify
+  }
+  final public var $rootViewId: Combine.Published<Foundation.UUID>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public init()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public struct LaunchView : SwiftUI.View {
+  public init(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String)
+  public init(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, botGreeting: Swift.String?)
+  public init(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, emailId: Swift.String?, userName: Swift.String?)
+  public init(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, emailId: Swift.String?, userName: Swift.String?, botGreeting: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s17eGainMessagingSDK10LaunchViewV4bodyQrvp", 0) __
+}
+public var launchViewIcon: Swift.String
+public var launchViewIconColor: SwiftUI.Color?
+public var launchViewIconWidth: CoreGraphics.CGFloat?
+public var launchViewIconHeight: CoreGraphics.CGFloat?
+public var launchViewIconXaxis: CoreGraphics.CGFloat?
+public var launchViewIconYaxis: CoreGraphics.CGFloat?
+public var HeaderTextColor: UIKit.UIColor?
+public var welcomeViewDisable: Swift.Bool?
+public var welcomeViewHeaderText: Swift.String?
+public var welcomeViewBackButtonColor: SwiftUI.Color?
+public var welcomeViewUserNameColor: SwiftUI.Color?
+public var welcomeViewBackgroundColor: UIKit.UIColor?
+public var welcomeViewTextFirstLine: Swift.String?
+public var welcomeViewTextSecondLine: Swift.String?
+public var welcomeViewTextFontColor: SwiftUI.Color?
+public var welcomeViewTextFontSize: SwiftUI.Font?
+public var welcomeViewTextFontWeight: SwiftUI.Font.Weight?
+public var welcomeViewButtonText: Swift.String?
+public var welcomeViewButtonTextColor: SwiftUI.Color?
+public var welcomeViewButtonColor: SwiftUI.Color?
+public var welcomeViewEnableQuickLinks: Swift.Bool?
+public var welcomeViewQuickLinks: [Swift.Dictionary<Swift.String, Swift.String>]?
+public var welcomeViewQuickLinksColor: SwiftUI.Color?
+public var eGainLogoColor: SwiftUI.Color?
+public var messageViewHeaderText: Swift.String?
+public var messageViewEndChatButtonColor: SwiftUI.Color?
+public var messageViewBackButtonColor: SwiftUI.Color?
+public var messageViewBackgroundColor: UIKit.UIColor?
+public var messageViewDateColor: SwiftUI.Color?
+public var messageViewTextEditorPlaceholderColor: SwiftUI.Color?
+public var messageViewSendersChatBubbleColor: SwiftUI.Color?
+public var messageViewReceiversChatBubbleColor: SwiftUI.Color?
+public var messageViewAttachmentButtonColor: SwiftUI.Color?
+public var messageViewSendMessageText: Swift.String?
+public var messageViewSendMessageTextColor: SwiftUI.Color?
+public var messageViewSendMessageTextGrayedOutColor: SwiftUI.Color?
+public var messageViewSendMessageButtonColor: SwiftUI.Color?
+public var messageViewSendMessageButtonGrayedOutColor: SwiftUI.Color?
+public var messageViewListpickerColor: SwiftUI.Color?
+public var messageViewRichlinkColor: SwiftUI.Color?
+public var messageViewSenderChatFontColor: SwiftUI.Color?
+public var messageViewReceiverChatFontColor: SwiftUI.Color?
+public var messageViewTypingFontColor: SwiftUI.Color?
+extension UIKit.UIApplication : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+final public class eGainMessaging : Foundation.ObservableObject {
+  @Combine.Published @_projectedValueProperty($showingActionSheet) final public var showingActionSheet: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  final public var $showingActionSheet: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($agentEnd) final public var agentEnd: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  final public var $agentEnd: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($conversationStarted) final public var conversationStarted: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  final public var $conversationStarted: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($safariURL) final public var safariURL: Swift.String {
+    get
+    set
+    _modify
+  }
+  final public var $safariURL: Combine.Published<Swift.String>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public init()
+  final public func initialize(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, completion: @escaping (_ initializeResult: [Swift.String : Any]) -> Swift.Void)
+  final public func initialize(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, emailId: Swift.String, userName: Swift.String, completion: @escaping (_ initializeResult: [Swift.String : Any]) -> Swift.Void)
+  final public func initialize(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, customized: Swift.String, completion: @escaping (_ initializeResult: [Swift.String : Any]) -> Swift.Void)
+  final public func initialize(clientId: Swift.String, clientSecret: Swift.String, channelType: Swift.String, accountAddress: Swift.String, emailId: Swift.String, userName: Swift.String, customized: Swift.String, completion: @escaping (_ initializeResult: [Swift.String : Any]) -> Swift.Void)
+  final public func storeSessionDetails(session: Swift.String, conversationType: Swift.String)
+  final public func storeSessionDetails(session: Swift.String, conversationType: Swift.String, emailId: Swift.String, userName: Swift.String)
+  final public func sendMessage(message: Swift.String, completion: @escaping (_ sendMessageResult: [Swift.String : Any]) -> Swift.Void)
+  final public func customAttributes(attributes: [Swift.Dictionary<Swift.String, Swift.String>])
+  final public func sendMessage(message: Swift.String, emailId: Swift.String, completion: @escaping (_ sendMessageResult: [Swift.String : Any]) -> Swift.Void)
+  final public func endConversation(completion: @escaping (_ endConversationResult: [Swift.String : Any]) -> Swift.Void)
+  final public func endConversation(emailId: Swift.String, completion: @escaping (_ endConversationResult: [Swift.String : Any]) -> Swift.Void)
+  final public func upload(fileName: Swift.String, completion: @escaping (_ uploadFileResult: [Swift.String : Any]) -> Swift.Void)
+  final public func upload(emailId: Swift.String, fileName: Swift.String, completion: @escaping (_ uploadFileResult: [Swift.String : Any]) -> Swift.Void)
+  final public func addListener(completion: @escaping (_ addListenerResult: Swift.String) -> Swift.Void)
+  final public func getFileNameFromPath(path: Swift.String) -> Swift.String
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}

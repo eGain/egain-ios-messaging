@@ -1,0 +1,11 @@
+framework module eGainMessagingSDK {
+  umbrella header "eGainMessagingSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module eGainMessagingSDK.Swift {
+    header "eGainMessagingSDK-Swift.h"
+    requires objc
+}
