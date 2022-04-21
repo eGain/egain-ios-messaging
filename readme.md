@@ -58,26 +58,14 @@ You can find an example project with some basic implementations provided [here](
 2. Open Xcode and go to your project.
 3. Click on the project name.
    <img width="1440" alt="Screen Shot 2022-04-20 at 9 37 15 PM" src="https://user-images.githubusercontent.com/94451874/164374454-94f90c97-e3b2-4f32-ba3a-75f0c1113c48.png">
-   <img width="1440" alt="sc 1" src="https://user-images.githubusercontent.com/94654299/153059234-dc01c22d-a602-4eb6-a24a-cf5f8ea1a97d.png">
 
 4. Under Frameworks, Libraries and Embedded Content, click the **Plus icon**.
    <img width="1440" alt="Screen Shot 2022-04-20 at 9 37 24 PM" src="https://user-images.githubusercontent.com/94451874/164374496-cc90fa90-1a73-41ed-b5ea-49bccb7f9638.png">
-   <img width="1440" alt="sc 2" src="https://user-images.githubusercontent.com/94654299/153059275-20e6b1cf-0a3c-4765-8ca0-30e8f0b56526.png">
   
 5. In the Choose Frameworks and libraries to add dialog, navigate to where you have stored the downloaded SDK. Select it and click **Open**.
    <img width="1440" alt="Screen Shot 2022-04-20 at 9 38 21 PM" src="https://user-images.githubusercontent.com/94451874/164374535-55027760-ab10-489c-b3aa-9c7b9a356783.png">
-   <img width="1440" alt="sc 3" src="https://user-images.githubusercontent.com/94654299/153059296-e23224ff-faa5-407d-b3f9-350c43cf034d.png">
 
 6. The Frameworks folder displays with eGainMessaging framework in the left panel. 
    <img width="1440" alt="Screen Shot 2022-04-20 at 9 38 31 PM" src="https://user-images.githubusercontent.com/94451874/164374580-f1446792-55b4-4cb1-8e84-dbac5e4e4dd8.png">
-   ![sc 5](https://user-images.githubusercontent.com/94654299/153060365-c02fa963-eb2b-4f5b-a757-3b52a69906d3.png)
-
-7. Drag the eGainMessaging from the Frameworks folder and move it to the project folder.
-   <img width="1440" alt="sc 5" src="https://user-images.githubusercontent.com/94654299/153059345-7157fa0d-753e-4bec-8f18-e1e5618dac8f.png">
-
-8. Select **Project** → **Targets** → **Build Settings** → **Search for "Framework Search Paths"**.
-9. Add `$(PROJECT_DIR)` and choose **Recursive option**.
-   <img width="1440" alt="sc 6" src="https://user-images.githubusercontent.com/94654299/153059422-9d2a0fdb-2b03-4517-a412-c3d613d6bc7e.png">
-
   
 ### Next Steps: Continue the installation with [Configure SDK](https://github.com/eGain/egain-ios-messaging/tree/dev/Examples)<a name="nextsteps"></a> for iOS procedures.
