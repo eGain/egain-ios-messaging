@@ -27,7 +27,7 @@ By adding our SDK directly to your app, you get:
 ![default_flow_ios](https://user-images.githubusercontent.com/94654299/157335596-8e5013b9-f91d-4fcf-9a98-473dd78fd188.png)
 
 ## eGain Mobile SDK for iOS
-The eGain iOS SDK is bundled into an `eGainMessaging.framework` file. This framework can be imported into any iOS projects and can be integrated. This framework allows you to use the out-of-the-box UI with all the inbuilt methods and enables chat for your application within minutes.
+The eGain iOS SDK is bundled into an `eGainMessagingSDK.framework` file. This framework can be imported into any iOS projects and can be integrated. This framework allows you to use the out-of-the-box UI with all the inbuilt methods and enables chat for your application within minutes.
 
 The SDK for iOS can be installed through manual installation. To install SDK for iOS, please refer to the complete installation<add link> guide.
    
@@ -54,7 +54,7 @@ Customers need to acquire credentials to gain access to the SDK. Please contact 
 You can find an example project with some basic implementations provided [here](https://github.com/eGain/egain-ios-messaging/tree/dev/Examples). 
 
 ## Installation
-1. Download the eGainMessaging.framework from the repository
+1. Download the eGainMessagingSDK.framework from the repository
 2. Open Xcode and go to your project.
 3. Click on the project name.
    <img width="1440" alt="sc 1" src="https://user-images.githubusercontent.com/94654299/153059234-dc01c22d-a602-4eb6-a24a-cf5f8ea1a97d.png">
