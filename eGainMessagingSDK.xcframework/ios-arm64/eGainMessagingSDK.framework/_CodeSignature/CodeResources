@@ -26,11 +26,11 @@
 		</data>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		B625ICa7ckw5NuPfie0seK4/JBU=
+		4BDUwTbTfMJPi25RmJCSiaXjmzY=
 		</data>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		bY6mIZwN8Xf5T43BWFlytRhhcz8=
+		12zs4awfOhyTxmXxUGSqmli7b+M=
 		</data>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		B625ICa7ckw5NuPfie0seK4/JBU=
+		4BDUwTbTfMJPi25RmJCSiaXjmzY=
 		</data>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		bY6mIZwN8Xf5T43BWFlytRhhcz8=
+		12zs4awfOhyTxmXxUGSqmli7b+M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -83,14 +83,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BRvBxxuZlSWQyP0YZkWNZ/6qIYFgOKyIHz/hTnC/22w=
+			JsjG3ujweWhmvRMLM5Zzs/Dq/v0scpl5VVBaN9LKa9M=
 			</data>
 		</dict>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z05O2U1X9TGDGYyP2Tz8SN0f6ZXmczAtYgf69Mdhpz0=
+			VVISqWt6i4o77Y0DjHXt7n5ZoZwhnpZytOZYsPNY+Fk=
 			</data>
 		</dict>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64.swiftdoc</key>
@@ -104,14 +104,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BRvBxxuZlSWQyP0YZkWNZ/6qIYFgOKyIHz/hTnC/22w=
+			JsjG3ujweWhmvRMLM5Zzs/Dq/v0scpl5VVBaN9LKa9M=
 			</data>
 		</dict>
 		<key>Modules/eGainMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z05O2U1X9TGDGYyP2Tz8SN0f6ZXmczAtYgf69Mdhpz0=
+			VVISqWt6i4o77Y0DjHXt7n5ZoZwhnpZytOZYsPNY+Fk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
