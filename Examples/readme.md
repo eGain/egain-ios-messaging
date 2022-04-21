@@ -62,7 +62,7 @@ To create a chat button which requires end users to provide their credentials to
 The allowed declarations are shown below:
 ```SWIFT
 import SwiftUI
-import eGainMessaging
+import eGainMessagingSDK
  
 struct ContentView: View {
     @ObservedObject var appState = AppState()
