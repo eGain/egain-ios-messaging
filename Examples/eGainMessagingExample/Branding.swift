@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import eGainMessaging
+import eGainMessagingSDK
 
 func setConfig(){
     launchViewIcon = "" // Add your icon to assets and enter the icon name here

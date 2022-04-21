@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import eGainMessaging
+import eGainMessagingSDK
 
 struct ContentView: View {
     @ObservedObject var appState = AppState()
