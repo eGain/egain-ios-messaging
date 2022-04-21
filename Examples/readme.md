@@ -90,7 +90,7 @@ The allowed declarations are shown below:
 ```swift
 
 import SwiftUI
-import eGainMessaging
+import eGainMessagingSDK
  
 struct ContentView: View {
     @ObservedObject var appState = AppState()
@@ -133,7 +133,7 @@ The UI of the SDK can be customized to configure the colors, text, and text size
 **Code Snippet**
 ```swift
 import SwiftUI
-import eGainMessaging
+import eGainMessagingSDK
  
 struct ContentView: View {
     @ObservedObject var appState = AppState()
