@@ -140,7 +140,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", channelType:"", accountAddress:"", emailId:"name@email.com", userName: "name", botGreeting: false)
+                LaunchView(clientId: "XXXXXX", clientSecret:"XXXXXX", channelType:"", accountAddress:"", emailId:"name@email.com", userName: "name", botGreeting: "Hi")
                     .id(appState.rootViewId)
         }
         .ignoresSafeArea()
@@ -181,7 +181,7 @@ This method is the entry point for the SDK. This method requires clientId, clien
 
 ##### Customer Mode - Initialize Chat
 ```swift 
-eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", channelType:"", accountAddress:"", emailId:"user@email.com", userName: "user", botGreeting: "Hi"){
+eGainMessaging().initialize(clientId: "XXXXXX", clientSecret: "XXXXXX", channelType:"", accountAddress:"", emailId:"user@email.com", userName: "user"){
     initializeResult in
     print(initializeResult)
 }
